@@ -64,7 +64,7 @@ cd reproduction
 ./setup.sh --count 40
 
 # Wait for PostgreSQL clusters to be ready
-kubectl get clusters -A -w
+kubectl get clusters.postgresql.cnpg.io -A -w
 
 # Start the stress test
 ./scripts/enable-cronjobs.sh
@@ -78,17 +78,10 @@ See [reproduction/README.md](reproduction/README.md) for detailed instructions.
 cd diagnostic
 
 # Run diagnostic (summary mode)
-./k8s-volume-diagnostic.sh \
-  -d <downstream-context> \
-  -H <harvester-context> \
-  -n <harvester-namespace>
+./k8s-volume-diagnostic.sh -d <downstream-context> -H <harvester-context> -n <harvester-namespace>
 
 # Run with verbose output
-./k8s-volume-diagnostic.sh \
-  -d <downstream-context> \
-  -H <harvester-context> \
-  -n <harvester-namespace> \
-  -v
+./k8s-volume-diagnostic.sh -d <downstream-context> -H <harvester-context> -n <harvester-namespace> -v
 ```
 
 See [diagnostic/README.md](diagnostic/README.md) for detailed usage.
