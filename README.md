@@ -34,6 +34,22 @@ This results in 80 total volumes with high-frequency attach/detach operations.
 
 > **Note:** The "backup" CronJob in the reproduction setup does not perform actual database backups. It simulates backup-like workloads by mounting a PVC and writing test data, creating the attach/detach pattern that triggers the race condition.
 
+### Test Cluster Configuration
+
+The issue was reproduced on a Rancher-managed RKE2 cluster (`ktc-play`) running on Harvester:
+
+| Configuration | Value |
+|---------------|-------|
+| Cluster Name | ktc-play |
+| Kubernetes Version | v1.33.5+rke2r1 |
+| CNI | Calico (with BGP enabled) |
+| Control Plane Nodes | 3 (2 vCPU, 4 GiB RAM each) |
+| Worker Nodes | 4 (4 vCPU, 8 GiB RAM each) |
+| Node OS | Ubuntu 24.04 Minimal |
+| Cloud Provider | Harvester |
+
+The cluster uses the Harvester cloud provider with hotplug volume support, which is the component exhibiting the race condition under load.
+
 ## Repository Structure
 
 ```
