@@ -1,0 +1,14 @@
+# Generated reproduction files
+reproduction/generated/
+
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak

@@ -1,0 +1,34 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: pg-test
+spec:
+  instances: 1
+
+  # Minimal resources for stress testing
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+  # Small storage
+  storage:
+    size: 1Gi
+    storageClass: default
+
+  # Simple bootstrap - no external backup
+  bootstrap:
+    initdb:
+      database: testdb
+      owner: testuser
+      secret:
+        name: pg-test-credentials
+
+  postgresql:
+    parameters:
+      max_connections: "20"
+      shared_buffers: "64MB"
+      log_statement: "none"

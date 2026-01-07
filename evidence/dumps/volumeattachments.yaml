@@ -1,0 +1,1832 @@
+apiVersion: v1
+items:
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:14:39Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-03f1b29b1e29ecee43aa7806ba84e1a50d66ec2c2aff43a33f0d41c5b3eff1f0
+    resourceVersion: "31053508"
+    uid: 6f5938bf-eeba-4cac-a6a5-7d1d285e0485
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-76d28c1d-d55c-4d10-bc34-b9f6aaf40455
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T20:04:24Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-04500b9b75f58fdf0fc10989a4a479f88d5771dd6506e30cdee0202fc1580473
+    resourceVersion: "30928096"
+    uid: b40c0c69-604f-41f3-8f96-baf9609ff1f9
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-cd388dbc-3d69-46bf-9e18-098a5694ac74
+  status:
+    attachError:
+      message: 'rpc error: code = Internal desc = Failed to add volume to node ktc-play-worker-4ffhh-rhbvr:
+        Operation cannot be fulfilled on virtualmachine.kubevirt.io "ktc-play-worker-4ffhh-rhbvr":
+        Unable to add volume [pvc-cd388dbc-3d69-46bf-9e18-098a5694ac74] because volume
+        with that name already exists'
+      time: "2026-01-06T20:05:11Z"
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T20:03:58Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-090feb0a7c28c019d36fa268f5c330c079163aff57f2707257bf523c3b0a92fb
+    resourceVersion: "30926751"
+    uid: a7ac799f-e755-43dc-8e99-27970a9e5971
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-dd6f2cbc-3803-40d8-ab21-1fbdd42ad596
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:40:03Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:35Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-0ec499f8778386ac4e84e13f1edac00f84cb8e31e21e60b6afff749d2961f1e0
+    resourceVersion: "31130149"
+    uid: 8959cc0d-f425-420b-9984-88ceb9384416
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-6494ba6f-ed55-4f74-9b32-7de906752270
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-6494ba6f-ed55-4f74-9b32-7de906752270
+        from node ktc-play-worker-4ffhh-5mn5w: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-5mn5w": Unable to remove volume [pvc-6494ba6f-ed55-4f74-9b32-7de906752270]
+        because it does not exist'
+      time: "2026-01-07T00:58:01Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:14:34Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-179d98f4f6886049a894d6094e9894327901ac8cdccbcb5e3d376b5cfe96e231
+    resourceVersion: "31054027"
+    uid: b3058123-5f7f-4c37-81d7-68b245e49373
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-6b07b067-5ed2-4cc5-a6af-e6ef4446124a
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:36:23Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-1bd2947b3afd3b92a8d21bc33be7d8ad253f009488632d90499d6bc5feb22ee5
+    resourceVersion: "31072906"
+    uid: 8cad33a5-9f2d-4878-9493-b06a78fc9c6c
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-fa56aaff-0e2c-4b3a-82f1-699df607f45f
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:00Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:34Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-20a57ee9edc1c807440cf233e1dc0a6c8b8b3a2f13be331f60402cb3a4bd3002
+    resourceVersion: "31130216"
+    uid: a69f1535-d6bd-4949-b98b-19078d82997a
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-c773808f-06e8-448f-85ea-4107b14f3f1c
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-c773808f-06e8-448f-85ea-4107b14f3f1c
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-c773808f-06e8-448f-85ea-4107b14f3f1c]
+        because it does not exist'
+      time: "2026-01-07T00:58:07Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:00Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:43:36Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-230742dc63696fc0cee90166bd4a3ba210776d48bdf166bca5103c60e72876a5
+    resourceVersion: "31130124"
+    uid: ee613bc7-8322-4c0d-858b-3ab802e7e7c8
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-835e85fb-737a-4a78-9cc5-2f1c17c3ef13
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-835e85fb-737a-4a78-9cc5-2f1c17c3ef13
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-835e85fb-737a-4a78-9cc5-2f1c17c3ef13]
+        because it does not exist'
+      time: "2026-01-07T00:57:59Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T23:40:03Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:52Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-23863bad8758512bca1e7a3e050d907f383ff033822506850bb65b6c9300280d
+    resourceVersion: "31130119"
+    uid: d682ec29-cb00-4d49-9811-3742597a7459
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-89805a01-c689-4710-af4a-3d10e7666b89
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-89805a01-c689-4710-af4a-3d10e7666b89
+        from node ktc-play-worker-4ffhh-rhbvr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-rhbvr": Unable to remove volume [pvc-89805a01-c689-4710-af4a-3d10e7666b89]
+        because it does not exist'
+      time: "2026-01-07T00:57:59Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T11:57:16Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-264c9106bd9c1f72424d3f7335423961955d8eba10c9920fb32637ae63a34735
+    resourceVersion: "30618317"
+    uid: d7776bd9-62da-48bd-b6fd-025f68ac66c4
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-3ada33a4-7a40-4534-bbd2-851737f7a389
+  status:
+    attachError:
+      message: 'rpc error: code = Internal desc = Failed to add volume to node ktc-play-worker-4ffhh-k77tr:
+        Operation cannot be fulfilled on virtualmachine.kubevirt.io "ktc-play-worker-4ffhh-k77tr":
+        Unable to add volume [pvc-3ada33a4-7a40-4534-bbd2-851737f7a389] because volume
+        with that name already exists'
+      time: "2026-01-06T11:57:45Z"
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:35:38Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-2b49bebfd9853b07279939a2e1d4fe062103023a72b47dd55f0a0be01bd1071b
+    resourceVersion: "31070975"
+    uid: db38d70e-d619-4ad2-9e13-e63cd264c092
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-ead635a6-4ea0-4b48-a9cc-123f182f6551
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:36:10Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-396e07df0e5f67e23a894bac8b0584cffbc83d1620fbebde22befcb7b087e97f
+    resourceVersion: "31072146"
+    uid: 0898e5ff-b788-46b8-bbc8-14aff52a6de4
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-c8a2e7d7-33d7-4dc5-840e-85be8ba03568
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T23:13:00Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-3a75b678f9d93c7079ec445a0bb686fe09e14b2e778bfb5cc0498e1d2e416135
+    resourceVersion: "31051366"
+    uid: 3df50264-07df-49c2-89b8-40be5dde4d61
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-ad3ed1cd-f63e-422d-9991-a3543b1e2806
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:35:39Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-3ab624f158c680a62f866854dbd6f151ca8364a5da923ddeb6798c5f9f1745fd
+    resourceVersion: "31071909"
+    uid: ff3f2157-8b6d-4d89-bc13-2341029c3e49
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-8f8f896e-0ceb-42f2-9ebe-d2a3565650a7
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:40:03Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:42:08Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-3bda6704cb149272dcba3295a0220f6af708350d9add3807311b89c8dddca437
+    resourceVersion: "31130180"
+    uid: a1879112-8c95-4b05-9899-0c9dae3849e7
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-599d88e1-47b7-48bd-87ad-66ef8136f918
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-599d88e1-47b7-48bd-87ad-66ef8136f918
+        from node ktc-play-worker-4ffhh-k77tr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-k77tr": Unable to remove volume [pvc-599d88e1-47b7-48bd-87ad-66ef8136f918]
+        because it does not exist'
+      time: "2026-01-07T00:58:04Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:40:00Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:40:54Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-3ce194602bac3c4ea01d4fa6ee3af79d47b870a359461d2cebe79f1672963c8b
+    resourceVersion: "31130237"
+    uid: 5f3a40a6-6063-44dc-a9d7-a3bd3b50f542
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-15da75d7-ae29-4dd6-88ed-2b628209d1c4
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-15da75d7-ae29-4dd6-88ed-2b628209d1c4
+        from node ktc-play-worker-4ffhh-5mn5w: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-5mn5w": Unable to remove volume [pvc-15da75d7-ae29-4dd6-88ed-2b628209d1c4]
+        because it does not exist'
+      time: "2026-01-07T00:58:10Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T23:36:49Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-3d755787429d2afe2d133d81c240faf1c9fab3b293667c1362aafb08c04623f9
+    resourceVersion: "31073176"
+    uid: af56d7e9-ceec-4192-83f7-08f32990b341
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-e43bd2ae-58ac-43d8-9447-0a26d30e312e
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:14:51Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-3f35b7bd55f3a25279244172170b0176989ea5cb764141315d3adf5c0c4d3690
+    resourceVersion: "31053430"
+    uid: 3716c95e-af72-4664-af49-f53b82cb55ec
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-43fce52b-1a2c-4608-8c94-ea4f1c32f99e
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:35:15Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-3f97cdbae24337b12e149e308bed8def62a45716877619219e26b8d02435d13e
+    resourceVersion: "31069979"
+    uid: d5ca3985-57b1-4fcf-b233-69aceca05ee7
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-52932f68-6ac4-4fb1-9be3-a189cb733b7a
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:42:08Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-407aca08cf23e7f5e44e4550f83b2f625989fd0802ce560ab5275d404783ab41
+    resourceVersion: "31130169"
+    uid: 6cbccd69-e700-4ec5-a714-abee6f7cb445
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-461cb4d8-d5e7-40dc-9abb-57121bf57d40
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-461cb4d8-d5e7-40dc-9abb-57121bf57d40
+        from node ktc-play-worker-4ffhh-k77tr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-k77tr": Unable to remove volume [pvc-461cb4d8-d5e7-40dc-9abb-57121bf57d40]
+        because it does not exist'
+      time: "2026-01-07T00:58:03Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:40:00Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:40:56Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-43b65491389c4d219744760653e100988e570c55a4de83448b29fa67d11cbbc7
+    resourceVersion: "31130242"
+    uid: f3fa8b97-e9f6-4c13-8200-da457ff6ff4e
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-d8954283-cc94-458f-9a9f-488a909c01ab
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-d8954283-cc94-458f-9a9f-488a909c01ab
+        from node ktc-play-worker-4ffhh-k77tr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-k77tr": Unable to remove volume [pvc-d8954283-cc94-458f-9a9f-488a909c01ab]
+        because it does not exist'
+      time: "2026-01-07T00:58:10Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:03Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-48b99d3453995fa7bff7d24f340a050e1ba6fdf788cdc2f24d05b77e8d50a0a2
+    resourceVersion: "31130152"
+    uid: 3074fc7c-e4c5-426f-b223-95f7e37ab3c5
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-1c4ec5fd-c8bc-4e3e-aff6-71515e3e57a6
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-1c4ec5fd-c8bc-4e3e-aff6-71515e3e57a6
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-1c4ec5fd-c8bc-4e3e-aff6-71515e3e57a6]
+        because it does not exist'
+      time: "2026-01-07T00:58:02Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:42Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-4fa2e630f740a3dc2c854461aa3812e4f5fe581d98ddfaba5cd56af0aae310b7
+    resourceVersion: "31130100"
+    uid: c21a4363-6634-404b-aa16-b16b66da4f03
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-5dadd0f9-76ef-44a2-b6b2-89eb5c91dfff
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-5dadd0f9-76ef-44a2-b6b2-89eb5c91dfff
+        from node ktc-play-worker-4ffhh-rhbvr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-rhbvr": Unable to remove volume [pvc-5dadd0f9-76ef-44a2-b6b2-89eb5c91dfff]
+        because it does not exist'
+      time: "2026-01-07T00:57:57Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:35:52Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-5177812a39dcd063cadae19d565c24c7ad964ce49b1524307e6bb99bf1365da9
+    resourceVersion: "31071280"
+    uid: 9b1ee46b-31f9-4041-b5e7-d3c2f26d1111
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-eb7f378a-8867-49cd-b166-d7ff5e6c1ae6
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:00Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:43:36Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-522411c21711dec136a1e235a853a388e1ca467ef897792dfae1faea44c4dfcd
+    resourceVersion: "31130203"
+    uid: 384047aa-61fa-403b-bb21-9b26d19184d5
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-cf93e651-7957-4436-b14c-d44147376af3
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-cf93e651-7957-4436-b14c-d44147376af3
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-cf93e651-7957-4436-b14c-d44147376af3]
+        because it does not exist'
+      time: "2026-01-07T00:58:06Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T23:40:02Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:11Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-5503295cd4709a591a409dac4a1c22b591c969dfb1f1b783a54dfd46a21203fb
+    resourceVersion: "31130087"
+    uid: c67266a7-70fc-4d03-89ea-3b594670bdb4
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-c73e24ab-2546-49be-bd91-5c9fcb4e1ab5
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-c73e24ab-2546-49be-bd91-5c9fcb4e1ab5
+        from node ktc-play-worker-4ffhh-rhbvr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-rhbvr": Unable to remove volume [pvc-c73e24ab-2546-49be-bd91-5c9fcb4e1ab5]
+        because it does not exist'
+      time: "2026-01-07T00:57:56Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:42:55Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-550804a9a0b313bb8f8d3e5a1420c4e604b91e051c1f341d3120e921a5e5adbb
+    resourceVersion: "31130200"
+    uid: 5dc8112b-aaf0-4b35-bab5-819675044263
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-3b96a678-6c6b-438b-88c5-d725f2076771
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-3b96a678-6c6b-438b-88c5-d725f2076771
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-3b96a678-6c6b-438b-88c5-d725f2076771]
+        because it does not exist'
+      time: "2026-01-07T00:58:06Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:35:30Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-567000275f628576ba45acff1442b07f78229e7108813b1fbbc6324d5ee323b3
+    resourceVersion: "31070698"
+    uid: 0810489d-f7b8-4f64-ae11-c8f361d22e8e
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-9a02dd5e-c2fa-4641-a75d-3719b61cdefb
+  status:
+    attachError:
+      time: "2026-01-06T23:35:50Z"
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T18:34:48Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-5d01d84ec805ff9c86b3f282f6ad5339a67aeeb8e334f4d61d704eff3a9324c3
+    resourceVersion: "30869946"
+    uid: 8d774dcf-bc5b-46ab-877c-cd5b45bdb147
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-58b92e28-42df-4d43-ab3f-b6ee0d49d282
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:00Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:43:36Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-5f3875851917cbd5fe145a09c3bd34d90d1815322d810f6ef9e28fc5c02781a3
+    resourceVersion: "31130197"
+    uid: 2d31edfc-820e-4b96-b6ce-1867e97d13bb
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-896e8047-cc1b-4bf8-90dc-30bb2146ef7e
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-896e8047-cc1b-4bf8-90dc-30bb2146ef7e
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-896e8047-cc1b-4bf8-90dc-30bb2146ef7e]
+        because it does not exist'
+      time: "2026-01-07T00:58:06Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:36:16Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-5fcdc445f971513f2a57c57d048c11c0103869c22834ed64e378013897aa063a
+    resourceVersion: "31073051"
+    uid: 081c14ef-8c69-4654-b113-1d2c078d3fde
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-19c3114e-fa09-4ba2-ba3e-674228e8a400
+  status:
+    attachError:
+      message: 'rpc error: code = Internal desc = Failed to add volume to node ktc-play-worker-4ffhh-k77tr:
+        Operation cannot be fulfilled on virtualmachine.kubevirt.io "ktc-play-worker-4ffhh-k77tr":
+        add volume request for volume [pvc-19c3114e-fa09-4ba2-ba3e-674228e8a400] already
+        exists'
+      time: "2026-01-06T23:37:26Z"
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T19:01:38Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-693c7e8de51c2690a496d485afd57ced8f7fc609570e5af0124173dd36814376
+    resourceVersion: "30884968"
+    uid: cb173327-9133-44be-9e0b-7e0e0d0f47e6
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-e24dd144-c1a8-4e19-9898-ba709e870f47
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:36:30Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-6a34dc139b5fdf77857dd3d943a6311ea7d262953898aff219f49417e1fcf234
+    resourceVersion: "31073275"
+    uid: 722d0540-f655-477c-947e-ad916c9d097c
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-dfc0a609-cb7c-44d7-970d-cdc7e19969fc
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:42:08Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-6cbacdd60915c35dd1614047fccc4ddcaec4c2a3f8997ac693d8938bb7bcaa53
+    resourceVersion: "31130077"
+    uid: c31a7464-d184-4075-b0d3-150e74b84ae5
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-6ff9d01e-1340-406d-b585-829c3573bf11
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-6ff9d01e-1340-406d-b585-829c3573bf11
+        from node ktc-play-worker-4ffhh-k77tr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-k77tr": Unable to remove volume [pvc-6ff9d01e-1340-406d-b585-829c3573bf11]
+        because it does not exist'
+      time: "2026-01-07T00:57:55Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:36:08Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-6ef6a2339ff41e729791c598b3a44cc15f5b2408bf0f55c17f7c77b27d5b58c7
+    resourceVersion: "31072193"
+    uid: 7bc5f3e8-0798-4f55-bff6-07305b3d116b
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-64cee5ce-2540-4ab1-b965-e4bc0bef28f1
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T19:01:39Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-72af54cd1171ef587bea73c50a3e85e2663eb1dd3545f88559c1ff71da880fec
+    resourceVersion: "30885049"
+    uid: 816ade7d-3758-4c8b-b8f3-4eb677c91db7
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-affbf5e1-0353-431a-b95c-7830a1b02488
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T23:36:27Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-72bf4165a0877e281dab63f818bcc014090000e233193e9105823bd0051521c9
+    resourceVersion: "31073381"
+    uid: c3174e3a-057d-484b-a2b3-79afc979d7ab
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-e49f1eca-eb63-45d2-b11e-72f981e06d53
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T23:35:19Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-78bc6b520c8c64a85f0ba7767b02384bd9e1741c112407bd96f558bc96d0f244
+    resourceVersion: "31070451"
+    uid: 69a19f7c-9f23-4994-8376-373dd3019c1d
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-53c5b6ff-09ad-47b9-a7f8-43c8bd58561f
+  status:
+    attachError:
+      message: 'rpc error: code = Internal desc = Failed to add volume to node ktc-play-worker-4ffhh-rhbvr:
+        Operation cannot be fulfilled on virtualmachine.kubevirt.io "ktc-play-worker-4ffhh-rhbvr":
+        Unable to add volume [pvc-53c5b6ff-09ad-47b9-a7f8-43c8bd58561f] because volume
+        with that name already exists'
+      time: "2026-01-06T23:35:42Z"
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:40:03Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:42:08Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-79e69bb8c8f63c45cbebd1fe10ad77e2d3465df71046b5f423199a42f300187b
+    resourceVersion: "31130207"
+    uid: 059ef871-6c6e-4de1-a7d4-a841df02bae7
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-0e56a610-80f0-4049-9dad-95f41d17d986
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-0e56a610-80f0-4049-9dad-95f41d17d986
+        from node ktc-play-worker-4ffhh-k77tr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-k77tr": Unable to remove volume [pvc-0e56a610-80f0-4049-9dad-95f41d17d986]
+        because it does not exist'
+      time: "2026-01-07T00:58:06Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T11:57:26Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-7ba957f7c446db1cb8848c5013a91cf5c4f2ea059848e3ecc0142d4473313aba
+    resourceVersion: "30618350"
+    uid: 569e0ebc-139c-4a34-8741-131f18d91d36
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-b3681a91-e9a7-47d3-899a-01a2c328c0f4
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:00Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:24Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-8495532d03dd40abc40d8863127d4666be3c560230106a8ff541d543a99f5cd9
+    resourceVersion: "31130069"
+    uid: dd323015-c90b-4b35-9313-639f46e2da6c
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-bba848f9-eb59-46d1-973b-cabcf049d7e3
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-bba848f9-eb59-46d1-973b-cabcf049d7e3
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-bba848f9-eb59-46d1-973b-cabcf049d7e3]
+        because it does not exist'
+      time: "2026-01-07T00:57:54Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:00Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:43:36Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-86def75aa22a222220465a21172f4bd8e85387abc9ff71e09b42b7a7fc3b71ba
+    resourceVersion: "31130104"
+    uid: 57f67a44-67af-44d4-b32b-8c3798a92e52
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-26e362ee-496f-40a7-89d6-bddcf59b2e87
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-26e362ee-496f-40a7-89d6-bddcf59b2e87
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-26e362ee-496f-40a7-89d6-bddcf59b2e87]
+        because it does not exist'
+      time: "2026-01-07T00:57:57Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:00Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:42:45Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-8aedaf4474cd1d987cda58f51e8b7914ad7bb1fc2b99184587dd98964419b797
+    resourceVersion: "31130114"
+    uid: 53ce6656-5111-4e5a-9bf0-f5866c5f085e
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-a51504ff-bb5f-4ba5-a78a-0450ab4145c9
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-a51504ff-bb5f-4ba5-a78a-0450ab4145c9
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-a51504ff-bb5f-4ba5-a78a-0450ab4145c9]
+        because it does not exist'
+      time: "2026-01-07T00:57:58Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:25Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-8d16a17d3d5ce26c063353e28e553a0af6b05de4bf32411fbc2f932ac1612ec1
+    resourceVersion: "31130236"
+    uid: d12ef38c-1df8-419c-81c0-de748d40b4d4
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-a6e23c6b-0fe6-489a-854d-2ccb2b6cd755
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-a6e23c6b-0fe6-489a-854d-2ccb2b6cd755
+        from node ktc-play-worker-4ffhh-5mn5w: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-5mn5w": Unable to remove volume [pvc-a6e23c6b-0fe6-489a-854d-2ccb2b6cd755]
+        because it does not exist'
+      time: "2026-01-07T00:58:09Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:02Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:43:36Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-9013a2e7cf6cd9b916eb25ee0935b3727ad42a9e18e17f8b1f1162870b0c86ba
+    resourceVersion: "31130212"
+    uid: 68509b2a-edd1-427f-b462-b07ee91a1c71
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-d58d7ccd-fe39-40fa-854f-0ddf193dc259
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-d58d7ccd-fe39-40fa-854f-0ddf193dc259
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-d58d7ccd-fe39-40fa-854f-0ddf193dc259]
+        because it does not exist'
+      time: "2026-01-07T00:58:07Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:36:40Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-9271f254900d51b7a8cc95b6f868707a9ff3ff45ab84fdb6cb6fa0afc43cf977
+    resourceVersion: "31073002"
+    uid: ff939582-a820-4da6-ae90-e965daf83efa
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-b9d84c60-008a-40a1-b596-bdbf79e2f897
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T11:57:20Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-929c41bb8078506504796c4ece771ec0a672167e41db3fe53df69c538ed1b613
+    resourceVersion: "30618288"
+    uid: 8a8be718-240c-4799-9c05-180137cb2548
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-981694ce-e826-4f80-b2c5-c56ed1105f4a
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:04Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-930286f994bdcccc4eaa88e6a46b948725cdbae4cca0285930a026f2fd19d4ce
+    resourceVersion: "31130244"
+    uid: fe129f3e-a23b-4bdc-9cb5-8f0c9a0e0c73
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-40780bf1-c051-46fe-9dd8-2de91edb46fd
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-40780bf1-c051-46fe-9dd8-2de91edb46fd
+        from node ktc-play-worker-4ffhh-5mn5w: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-5mn5w": Unable to remove volume [pvc-40780bf1-c051-46fe-9dd8-2de91edb46fd]
+        because it does not exist'
+      time: "2026-01-07T00:58:10Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T23:14:29Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-9476fedd58e734a6baf105399af2d64d369e0d913bf2a7a0b6f39dc6c71fbeff
+    resourceVersion: "31054097"
+    uid: 491c6cd1-497a-4646-b718-26eb298b6ed3
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-584ac72f-f907-4da2-86db-704150fdc2a2
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:12:58Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-9af82b7aae1faa448d499640d3c8686a496c0b304d449cd52ef1231ecd02fddf
+    resourceVersion: "31051009"
+    uid: c87ff170-57ae-4fe2-88d9-2d7663252a8e
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-bfe7457d-4e35-46b2-bb8b-e03b7bc8396a
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:13:01Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-9eb718e685f0697d36fe591558330f1c64d720ab948d0d90455985a86711efe1
+    resourceVersion: "31051348"
+    uid: ad7dfb5c-bb51-4847-a7b0-4a2fbc14edf6
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-7cb3d199-24b0-4811-98bb-b56e8409d1ad
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:42:05Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-a485c6031d98f55fc0825ec36580a3e3dfc9dd71ef9106d3e073204744da9875
+    resourceVersion: "31130074"
+    uid: 813f73c3-daeb-4a57-a615-9e559dc1be64
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-f448075c-8d57-48d1-bb79-ef18ba0d00a2
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-f448075c-8d57-48d1-bb79-ef18ba0d00a2
+        from node ktc-play-worker-4ffhh-5mn5w: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-5mn5w": Unable to remove volume [pvc-f448075c-8d57-48d1-bb79-ef18ba0d00a2]
+        because it does not exist'
+      time: "2026-01-07T00:57:54Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:36:51Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-a5687d145083764fcc4ad43f884459fa78774b25c04c2fbba2a8182a27d4eeb9
+    resourceVersion: "31073018"
+    uid: d978c845-3072-492c-abec-9bd60d3980e8
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-5a65e963-e8f2-41a6-ab01-51953f3df175
+  status:
+    attachError:
+      message: 'rpc error: code = Internal desc = Failed to add volume to node ktc-play-worker-4ffhh-5mn5w:
+        the server rejected our request due to an error in our request'
+      time: "2026-01-06T23:37:14Z"
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T23:36:13Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-a6078ff33820b746a3a1bb9b4c1ed4cf22a3fac37c8ffe8a0acadd05fb369368
+    resourceVersion: "31072594"
+    uid: 86a44116-8718-4817-9dac-1e2f39ad4e45
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-e5bceebf-da6d-4a67-b344-112d6845d4fb
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:07Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-a7308360c9e4554ff3b273fdf437475da544034bb53f2ad2437a85c775078ec4
+    resourceVersion: "31130111"
+    uid: 7e3f9486-6ad5-41f1-a44b-7e32c169eb85
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-fe7fdb19-6313-41c7-84d2-425037dea83f
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-fe7fdb19-6313-41c7-84d2-425037dea83f
+        from node ktc-play-worker-4ffhh-k77tr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-k77tr": Unable to remove volume [pvc-fe7fdb19-6313-41c7-84d2-425037dea83f]
+        because it does not exist'
+      time: "2026-01-07T00:57:58Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T23:40:03Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:42:02Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-abf57c64621d9cd172ab9e23dd6b8ba37fd9491085121e29290c1540be282f96
+    resourceVersion: "31130176"
+    uid: ae94c223-ef5f-48f3-8168-69bbea40590a
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-6cdefa2a-db2b-4774-8cde-972371bbadcf
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-6cdefa2a-db2b-4774-8cde-972371bbadcf
+        from node ktc-play-worker-4ffhh-rhbvr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-rhbvr": Unable to remove volume [pvc-6cdefa2a-db2b-4774-8cde-972371bbadcf]
+        because it does not exist'
+      time: "2026-01-07T00:58:03Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:35:31Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-b125a33e537201ea32b858bc282dc2bac964c1629e59f8a5b79e3801f9775f4b
+    resourceVersion: "31071857"
+    uid: 86f3d0c9-e8b2-4698-9062-33b853a482eb
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-7b7d0ddf-8348-440b-9dff-1fb714c8cdb1
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:40:02Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:27Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-b35b1503b8fcfc561faebb900b486cb37210ac63ab78fe2c2c4ab2ff9164b53b
+    resourceVersion: "31130082"
+    uid: 4780a889-8eee-40ea-98da-d990afa227d8
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-4010e851-a120-4257-9d80-1ca9cde2c5e9
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-4010e851-a120-4257-9d80-1ca9cde2c5e9
+        from node ktc-play-worker-4ffhh-k77tr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-k77tr": Unable to remove volume [pvc-4010e851-a120-4257-9d80-1ca9cde2c5e9]
+        because it does not exist'
+      time: "2026-01-07T00:57:55Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:02Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:42:55Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-b476009a416483e1909c9e40e5d89e0ecb7636d7fdbe4da763c90faff8f63f8c
+    resourceVersion: "31130220"
+    uid: 785afb57-d17d-4e6e-a9c1-de1f87b49ff1
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-6c404df4-e930-426f-a213-f4f3495905a9
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-6c404df4-e930-426f-a213-f4f3495905a9
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-6c404df4-e930-426f-a213-f4f3495905a9]
+        because it does not exist'
+      time: "2026-01-07T00:58:07Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:02Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:24Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-b6d3f5a9c7f1abda863e49e1259694bb4d54186592bd25315a00123a87ece1cf
+    resourceVersion: "31130128"
+    uid: c4484917-340e-4e7e-9b28-81e5ba10819f
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-a26b7f86-3d89-4c8a-a91e-37b929b9c6e9
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-a26b7f86-3d89-4c8a-a91e-37b929b9c6e9
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-a26b7f86-3d89-4c8a-a91e-37b929b9c6e9]
+        because it does not exist'
+      time: "2026-01-07T00:58:00Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:45Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-b8d8e4e377263ea5ee39368c2f3b8412c2107933a042e48199c0c7a09bd76689
+    resourceVersion: "31130121"
+    uid: 6dc6e374-2844-4739-89a0-b4258aa2fe28
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-9942d318-de86-427a-81d2-432a37a504df
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-9942d318-de86-427a-81d2-432a37a504df
+        from node ktc-play-worker-4ffhh-5mn5w: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-5mn5w": Unable to remove volume [pvc-9942d318-de86-427a-81d2-432a37a504df]
+        because it does not exist'
+      time: "2026-01-07T00:57:59Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:35:55Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-bc64faaaad08581f7a6d53316dc71dea9540591797b1aa9b08c576325ee2ff4e
+    resourceVersion: "31071400"
+    uid: 6a7070f4-ee51-43f7-b537-12664a9f6a33
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-73003430-8f1f-47ba-9cd1-d12d03bc8d09
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:35:59Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-c5fcf14d7c60a9fe4754ce107093c0a16c456a806ce01b53483dc747a5d15b01
+    resourceVersion: "31071402"
+    uid: 4ffdc8e4-d632-4bb1-af89-d07bbc1ae04c
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-cad04efa-cb8c-43b2-9e03-46c68765104e
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T23:40:02Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:52Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-c99fa587192b297af871a3685c8643c3908a3a1e70ca3c909d8e268a617224b5
+    resourceVersion: "31130108"
+    uid: c233aa58-828e-4c33-a11d-c372ae112d07
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-9ece1beb-a021-4e35-9d29-b3ae14e477b1
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-9ece1beb-a021-4e35-9d29-b3ae14e477b1
+        from node ktc-play-worker-4ffhh-rhbvr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-rhbvr": Unable to remove volume [pvc-9ece1beb-a021-4e35-9d29-b3ae14e477b1]
+        because it does not exist'
+      time: "2026-01-07T00:57:58Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:40:02Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:57Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-c9fc81bf40cdecad8ab8211a2f60f9acab86d681ad58d3254429767b75f506e2
+    resourceVersion: "31130171"
+    uid: e7383a09-556b-43a8-bce3-5e8abd7146d6
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-e26406e9-738d-4da4-9948-f8ac27fa68bb
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-e26406e9-738d-4da4-9948-f8ac27fa68bb
+        from node ktc-play-worker-4ffhh-k77tr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-k77tr": Unable to remove volume [pvc-e26406e9-738d-4da4-9948-f8ac27fa68bb]
+        because it does not exist'
+      time: "2026-01-07T00:58:03Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:13Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-ce4784147f38a26211884f11f10d554f5ecc2c34df1845202afc887656986dbb
+    resourceVersion: "31130162"
+    uid: 76172714-3d8e-4950-a124-fd3a6d376b8d
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-690513de-9fd2-4ad7-8dd3-fb5fd604e99a
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-690513de-9fd2-4ad7-8dd3-fb5fd604e99a
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-690513de-9fd2-4ad7-8dd3-fb5fd604e99a]
+        because it does not exist'
+      time: "2026-01-07T00:58:02Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:42:49Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-d2386aaa0dc3e05176efc265f1cfad9ed8b6e660d305e3c401ed42171d9ed9c9
+    resourceVersion: "31130079"
+    uid: 1b4e33f9-22a7-4faf-9eb2-812006c71a54
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-bcafc7c4-0658-4135-9f8c-8929b1c8a2a3
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-bcafc7c4-0658-4135-9f8c-8929b1c8a2a3
+        from node ktc-play-worker-4ffhh-k77tr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-k77tr": Unable to remove volume [pvc-bcafc7c4-0658-4135-9f8c-8929b1c8a2a3]
+        because it does not exist'
+      time: "2026-01-07T00:57:55Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:00Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:42:45Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-d2e9fd7f1361027198358ca0ee950f9120761a7a8bbea78d91f8f76b5b83526b
+    resourceVersion: "31130192"
+    uid: 081ef68b-83dc-4e59-9e55-c94f318605cb
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-d2a1ed14-f4dc-4992-aaa6-9cce22caab34
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-d2a1ed14-f4dc-4992-aaa6-9cce22caab34
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-d2a1ed14-f4dc-4992-aaa6-9cce22caab34]
+        because it does not exist'
+      time: "2026-01-07T00:58:05Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:43:16Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-d663eb3ba89c022b0569d7804da61f0f2591ec84c8ab6814c9a31f7b612b6627
+    resourceVersion: "31130241"
+    uid: e8055e18-5998-47c4-831e-2ea0c7015456
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-d0fd5510-8197-494f-9771-0be971402e03
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-d0fd5510-8197-494f-9771-0be971402e03
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-d0fd5510-8197-494f-9771-0be971402e03]
+        because it does not exist'
+      time: "2026-01-07T00:58:10Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T23:35:54Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-d9e0165d0f27513c834f5b2e95616f3a53a8a76cfe3e10e894f0e6bb305bb820
+    resourceVersion: "31072810"
+    uid: a5ede51d-afec-487f-8a0b-94cab6086ca7
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-eb119438-8f12-473a-bb0a-fed703f7a334
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T20:04:20Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-db80e0c31af7e7f8c6f8eb55c1f70a98adb8deb7ee0027b41ee0feafb97e4498
+    resourceVersion: "30927634"
+    uid: d750237d-d825-478c-8545-ab149e895901
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-f6e50963-c01b-42f4-be24-8fe172a221a1
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:40:02Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:42:49Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-dc607ad58263dd6b8331057a08af59e122c520aa2bd75c37df3e7156a9a3fed8
+    resourceVersion: "31130107"
+    uid: 59ecab3b-1bcc-4129-a37d-9a7d6efc69af
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-67caaaf8-2c30-404e-8b0b-929b0debf06f
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-67caaaf8-2c30-404e-8b0b-929b0debf06f
+        from node ktc-play-worker-4ffhh-k77tr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-k77tr": Unable to remove volume [pvc-67caaaf8-2c30-404e-8b0b-929b0debf06f]
+        because it does not exist'
+      time: "2026-01-07T00:57:58Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:14:37Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-de60e7a0a0bcd11e31ad61e39c0e7ad781e865f1049d58f15dbd17f1e9e4ac46
+    resourceVersion: "31053984"
+    uid: 1d2666aa-520a-45f6-aece-811998bedfd0
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-d55222fd-3405-4d04-8cc7-4a8f24031d05
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:35:50Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-e0b943db88143170c63f9fe772823965215015a4ef372d9909ee9e9ca713759c
+    resourceVersion: "31071578"
+    uid: 923628fd-ed3b-44a6-98bc-d5b081ba29db
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-01d969d1-6a04-4897-aaca-5890a6745827
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-01d969d1-6a04-4897-aaca-5890a6745827
+        from node ktc-play-worker-4ffhh-5mn5w: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-5mn5w": a remove volume request for volume [pvc-01d969d1-6a04-4897-aaca-5890a6745827]
+        already exists and is still being processed'
+      time: "2026-01-06T23:35:51Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-rhbvr
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:11Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-e57f77a165dda7e45fcd73c736076956d4433b521046ab73f99cc5655b21999c
+    resourceVersion: "31130155"
+    uid: 43d8fee2-de32-4e81-8948-f3e82d2c0f36
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-rhbvr
+    source:
+      persistentVolumeName: pvc-9f65d4a8-da48-420d-bce2-9b67aa0a11f7
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-9f65d4a8-da48-420d-bce2-9b67aa0a11f7
+        from node ktc-play-worker-4ffhh-rhbvr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-rhbvr": Unable to remove volume [pvc-9f65d4a8-da48-420d-bce2-9b67aa0a11f7]
+        because it does not exist'
+      time: "2026-01-07T00:58:02Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-07T00:05:11Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-07T00:06:08Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-e5ab2bbec74cf8001155177064ad27aa4939f9187b32edd2a9fdeb1209322f2f
+    resourceVersion: "31130159"
+    uid: 60030167-a49a-4d79-b367-8fbcdea03122
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-0e56a610-80f0-4049-9dad-95f41d17d986
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-0e56a610-80f0-4049-9dad-95f41d17d986
+        from node ktc-play-worker-4ffhh-9j8sd: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-9j8sd": Unable to remove volume [pvc-0e56a610-80f0-4049-9dad-95f41d17d986]
+        because it does not exist'
+      time: "2026-01-07T00:58:02Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:36:11Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-ebe7d7242b8611dc3a801c4f7eeba0e229e408d01ee098d03c78876379566f42
+    resourceVersion: "31073463"
+    uid: 8ea83ece-47b6-4689-a37b-0a22a48fe232
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-300df799-7437-44d3-b52d-6cfad6b7d68f
+  status:
+    attachError:
+      message: 'rpc error: code = DeadlineExceeded desc = Failed to wait the volume
+        pvc-300df799-7437-44d3-b52d-6cfad6b7d68f status to settled, err: context deadline
+        exceeded'
+      time: "2026-01-06T23:37:16Z"
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-9j8sd
+    creationTimestamp: "2026-01-06T23:36:24Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-f2daa513f1050a5d6deabc5779384ee45479c83ef81dd83c9d40a820fc0e2086
+    resourceVersion: "31072407"
+    uid: 068ca911-38ce-42ac-be82-23b3ce1146ff
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-9j8sd
+    source:
+      persistentVolumeName: pvc-172ecc2f-cecf-4b9f-af9b-7a2c59807193
+  status:
+    attached: true
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-5mn5w
+    creationTimestamp: "2026-01-06T23:40:03Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:25Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-f6be210fc4f20f54f1d8d4ea731a2a52b370f7ad57eafb3b4e804b3976f30b09
+    resourceVersion: "31130142"
+    uid: 2c2cf2dc-34b9-4bc4-8f63-95dc55a7874e
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-5mn5w
+    source:
+      persistentVolumeName: pvc-fc5a338f-1f6e-482e-bf0d-45a67b7b2c3a
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-fc5a338f-1f6e-482e-bf0d-45a67b7b2c3a
+        from node ktc-play-worker-4ffhh-5mn5w: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-5mn5w": Unable to remove volume [pvc-fc5a338f-1f6e-482e-bf0d-45a67b7b2c3a]
+        because it does not exist'
+      time: "2026-01-07T00:58:01Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:40:02Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:42:19Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-f850bc5942cd20007eb12bd1453084ddca80bc44f8b74281a573640ab365868e
+    resourceVersion: "31130224"
+    uid: 8fb5ca7d-b5c0-4cc8-b080-668668224b90
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-2a44e94e-6b9f-4600-a529-9e64d744bc78
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-2a44e94e-6b9f-4600-a529-9e64d744bc78
+        from node ktc-play-worker-4ffhh-k77tr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-k77tr": Unable to remove volume [pvc-2a44e94e-6b9f-4600-a529-9e64d744bc78]
+        because it does not exist'
+      time: "2026-01-07T00:58:08Z"
+- apiVersion: storage.k8s.io/v1
+  kind: VolumeAttachment
+  metadata:
+    annotations:
+      csi.alpha.kubernetes.io/node-id: ktc-play-worker-4ffhh-k77tr
+    creationTimestamp: "2026-01-06T23:40:01Z"
+    deletionGracePeriodSeconds: 0
+    deletionTimestamp: "2026-01-06T23:41:07Z"
+    finalizers:
+    - external-attacher/driver-harvesterhci-io
+    name: csi-fd22c1c3b92c80b4c43f90209219fa44ba5ca222b5026185eb787ad9317596ab
+    resourceVersion: "31130196"
+    uid: dd49523f-d202-4557-afe9-55f261831a66
+  spec:
+    attacher: driver.harvesterhci.io
+    nodeName: ktc-play-worker-4ffhh-k77tr
+    source:
+      persistentVolumeName: pvc-9b00821e-75e3-4375-8efb-ffc9749d5a2d
+  status:
+    attached: true
+    detachError:
+      message: 'rpc error: code = Internal desc = Failed to remove volume pvc-9b00821e-75e3-4375-8efb-ffc9749d5a2d
+        from node ktc-play-worker-4ffhh-k77tr: Operation cannot be fulfilled on virtualmachine.kubevirt.io
+        "ktc-play-worker-4ffhh-k77tr": Unable to remove volume [pvc-9b00821e-75e3-4375-8efb-ffc9749d5a2d]
+        because it does not exist'
+      time: "2026-01-07T00:58:05Z"
+kind: List
+metadata:
+  resourceVersion: ""

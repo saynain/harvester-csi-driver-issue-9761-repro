@@ -1,0 +1,3460 @@
+{
+  "apiVersion": "kubevirt.io/v1",
+  "kind": "VirtualMachine",
+  "metadata": {
+    "annotations": {
+      "harvesterhci.io/mac-address": "{\"nic-0\":\"6a:bc:68:1f:cb:42\"}",
+      "harvesterhci.io/vmRunStrategy": "RerunOnFailure",
+      "harvesterhci.io/volumeClaimTemplates": "[{\"metadata\":{\"name\":\"ktc-play-cp-prxfd-9zptf-disk-0-jmxkc\",\"creationTimestamp\":null,\"annotations\":{\"harvesterhci.io/imageId\":\"ktc/image-4mgl2\"}},\"spec\":{\"accessModes\":[\"ReadWriteMany\"],\"resources\":{\"requests\":{\"storage\":\"40Gi\"}},\"storageClassName\":\"longhorn-image-4mgl2\",\"volumeMode\":\"Block\"},\"status\":{}}]",
+      "kubevirt.io/latest-observed-api-version": "v1",
+      "kubevirt.io/storage-observed-api-version": "v1"
+    },
+    "creationTimestamp": "2025-11-25T12:47:09Z",
+    "finalizers": [
+      "kubevirt.io/virtualMachineControllerFinalize",
+      "wrangler.cattle.io/VMController.CleanupPVCAndSnapshot"
+    ],
+    "generation": 1,
+    "labels": {
+      "guestcluster.harvesterhci.io/name": "ktc-play",
+      "harvesterhci.io/creator": "docker-machine-driver-harvester",
+      "harvesterhci.io/machineSetName": "ktc-ktc-play-cp",
+      "harvesterhci.io/vmName": "ktc-play-cp-prxfd-9zptf",
+      "nodepool.harvesterhci.io/name": "cp-prxfd"
+    },
+    "name": "ktc-play-cp-prxfd-9zptf",
+    "namespace": "ktc",
+    "resourceVersion": "339485822",
+    "uid": "28a51686-74aa-4aaf-82d0-a0e38ea51d3e"
+  },
+  "spec": {
+    "runStrategy": "RerunOnFailure",
+    "template": {
+      "metadata": {
+        "annotations": {
+          "harvesterhci.io/sshNames": "[]",
+          "harvesterhci.io/waitForLeaseInterfaceNames": "[]"
+        },
+        "creationTimestamp": null,
+        "labels": {
+          "guestcluster.harvesterhci.io/name": "ktc-play",
+          "harvesterhci.io/creator": "docker-machine-driver-harvester",
+          "harvesterhci.io/machineSetName": "ktc-ktc-play-cp",
+          "harvesterhci.io/vmName": "ktc-play-cp-prxfd-9zptf",
+          "nodepool.harvesterhci.io/name": "cp-prxfd"
+        }
+      },
+      "spec": {
+        "affinity": {
+          "nodeAffinity": {
+            "requiredDuringSchedulingIgnoredDuringExecution": {
+              "nodeSelectorTerms": [
+                {
+                  "matchExpressions": [
+                    {
+                      "key": "network.harvesterhci.io/oob",
+                      "operator": "In",
+                      "values": [
+                        "true"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "podAntiAffinity": {
+            "preferredDuringSchedulingIgnoredDuringExecution": [
+              {
+                "podAffinityTerm": {
+                  "labelSelector": {
+                    "matchExpressions": [
+                      {
+                        "key": "harvesterhci.io/creator",
+                        "operator": "Exists"
+                      }
+                    ]
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                },
+                "weight": 100
+              }
+            ]
+          }
+        },
+        "architecture": "amd64",
+        "domain": {
+          "cpu": {
+            "cores": 2
+          },
+          "devices": {
+            "disks": [
+              {
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "cloudinitdisk"
+              },
+              {
+                "bootOrder": 1,
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "disk-0"
+              }
+            ],
+            "interfaces": [
+              {
+                "bridge": {},
+                "model": "virtio",
+                "name": "nic-0"
+              }
+            ]
+          },
+          "machine": {
+            "type": "q35"
+          },
+          "memory": {
+            "guest": "4Gi"
+          },
+          "resources": {
+            "limits": {
+              "cpu": "2",
+              "memory": "4Gi"
+            },
+            "requests": {
+              "cpu": "125m",
+              "memory": "2730Mi"
+            }
+          }
+        },
+        "evictionStrategy": "LiveMigrateIfPossible",
+        "networks": [
+          {
+            "multus": {
+              "networkName": "ktc/vlan2001"
+            },
+            "name": "nic-0"
+          }
+        ],
+        "terminationGracePeriodSeconds": 120,
+        "volumes": [
+          {
+            "cloudInitNoCloud": {
+              "secretRef": {
+                "name": "ktc-play-cp-prxfd-9zptf-cloudinit"
+              }
+            },
+            "name": "cloudinitdisk"
+          },
+          {
+            "name": "disk-0",
+            "persistentVolumeClaim": {
+              "claimName": "ktc-play-cp-prxfd-9zptf-disk-0-jmxkc"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2025-11-25T12:47:39Z",
+        "status": "True",
+        "type": "Ready"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "LiveMigratable"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "StorageLiveMigratable"
+      },
+      {
+        "lastProbeTime": "2025-11-25T12:48:53Z",
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "AgentConnected"
+      }
+    ],
+    "created": true,
+    "desiredGeneration": 1,
+    "observedGeneration": 1,
+    "printableStatus": "Running",
+    "ready": true,
+    "runStrategy": "RerunOnFailure",
+    "volumeSnapshotStatuses": [
+      {
+        "enabled": false,
+        "name": "cloudinitdisk",
+        "reason": "Snapshot is not supported for this volumeSource type [cloudinitdisk]"
+      },
+      {
+        "enabled": true,
+        "name": "disk-0"
+      }
+    ]
+  }
+}
+{
+  "apiVersion": "kubevirt.io/v1",
+  "kind": "VirtualMachine",
+  "metadata": {
+    "annotations": {
+      "harvesterhci.io/mac-address": "{\"nic-0\":\"be:56:51:59:12:ce\"}",
+      "harvesterhci.io/vmRunStrategy": "RerunOnFailure",
+      "harvesterhci.io/volumeClaimTemplates": "[{\"metadata\":{\"name\":\"ktc-play-cp-prxfd-mrttp-disk-0-fld9h\",\"creationTimestamp\":null,\"annotations\":{\"harvesterhci.io/imageId\":\"ktc/image-4mgl2\"}},\"spec\":{\"accessModes\":[\"ReadWriteMany\"],\"resources\":{\"requests\":{\"storage\":\"40Gi\"}},\"storageClassName\":\"longhorn-image-4mgl2\",\"volumeMode\":\"Block\"},\"status\":{}}]",
+      "kubevirt.io/latest-observed-api-version": "v1",
+      "kubevirt.io/storage-observed-api-version": "v1"
+    },
+    "creationTimestamp": "2025-11-25T12:47:08Z",
+    "finalizers": [
+      "kubevirt.io/virtualMachineControllerFinalize",
+      "wrangler.cattle.io/VMController.CleanupPVCAndSnapshot"
+    ],
+    "generation": 1,
+    "labels": {
+      "guestcluster.harvesterhci.io/name": "ktc-play",
+      "harvesterhci.io/creator": "docker-machine-driver-harvester",
+      "harvesterhci.io/machineSetName": "ktc-ktc-play-cp",
+      "harvesterhci.io/vmName": "ktc-play-cp-prxfd-mrttp",
+      "nodepool.harvesterhci.io/name": "cp-prxfd"
+    },
+    "name": "ktc-play-cp-prxfd-mrttp",
+    "namespace": "ktc",
+    "resourceVersion": "339485828",
+    "uid": "85c54dfc-950b-46a1-983d-8d1c44a6159f"
+  },
+  "spec": {
+    "runStrategy": "RerunOnFailure",
+    "template": {
+      "metadata": {
+        "annotations": {
+          "harvesterhci.io/sshNames": "[]",
+          "harvesterhci.io/waitForLeaseInterfaceNames": "[]"
+        },
+        "creationTimestamp": null,
+        "labels": {
+          "guestcluster.harvesterhci.io/name": "ktc-play",
+          "harvesterhci.io/creator": "docker-machine-driver-harvester",
+          "harvesterhci.io/machineSetName": "ktc-ktc-play-cp",
+          "harvesterhci.io/vmName": "ktc-play-cp-prxfd-mrttp",
+          "nodepool.harvesterhci.io/name": "cp-prxfd"
+        }
+      },
+      "spec": {
+        "affinity": {
+          "nodeAffinity": {
+            "requiredDuringSchedulingIgnoredDuringExecution": {
+              "nodeSelectorTerms": [
+                {
+                  "matchExpressions": [
+                    {
+                      "key": "network.harvesterhci.io/oob",
+                      "operator": "In",
+                      "values": [
+                        "true"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "podAntiAffinity": {
+            "preferredDuringSchedulingIgnoredDuringExecution": [
+              {
+                "podAffinityTerm": {
+                  "labelSelector": {
+                    "matchExpressions": [
+                      {
+                        "key": "harvesterhci.io/creator",
+                        "operator": "Exists"
+                      }
+                    ]
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                },
+                "weight": 100
+              }
+            ]
+          }
+        },
+        "architecture": "amd64",
+        "domain": {
+          "cpu": {
+            "cores": 2
+          },
+          "devices": {
+            "disks": [
+              {
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "cloudinitdisk"
+              },
+              {
+                "bootOrder": 1,
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "disk-0"
+              }
+            ],
+            "interfaces": [
+              {
+                "bridge": {},
+                "model": "virtio",
+                "name": "nic-0"
+              }
+            ]
+          },
+          "machine": {
+            "type": "q35"
+          },
+          "memory": {
+            "guest": "4Gi"
+          },
+          "resources": {
+            "limits": {
+              "cpu": "2",
+              "memory": "4Gi"
+            },
+            "requests": {
+              "cpu": "125m",
+              "memory": "2730Mi"
+            }
+          }
+        },
+        "evictionStrategy": "LiveMigrateIfPossible",
+        "networks": [
+          {
+            "multus": {
+              "networkName": "ktc/vlan2001"
+            },
+            "name": "nic-0"
+          }
+        ],
+        "terminationGracePeriodSeconds": 120,
+        "volumes": [
+          {
+            "cloudInitNoCloud": {
+              "secretRef": {
+                "name": "ktc-play-cp-prxfd-mrttp-cloudinit"
+              }
+            },
+            "name": "cloudinitdisk"
+          },
+          {
+            "name": "disk-0",
+            "persistentVolumeClaim": {
+              "claimName": "ktc-play-cp-prxfd-mrttp-disk-0-fld9h"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2025-11-25T12:47:39Z",
+        "status": "True",
+        "type": "Ready"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "LiveMigratable"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "StorageLiveMigratable"
+      },
+      {
+        "lastProbeTime": "2025-11-25T12:48:53Z",
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "AgentConnected"
+      }
+    ],
+    "created": true,
+    "desiredGeneration": 1,
+    "observedGeneration": 1,
+    "printableStatus": "Running",
+    "ready": true,
+    "runStrategy": "RerunOnFailure",
+    "volumeSnapshotStatuses": [
+      {
+        "enabled": false,
+        "name": "cloudinitdisk",
+        "reason": "Snapshot is not supported for this volumeSource type [cloudinitdisk]"
+      },
+      {
+        "enabled": true,
+        "name": "disk-0"
+      }
+    ]
+  }
+}
+{
+  "apiVersion": "kubevirt.io/v1",
+  "kind": "VirtualMachine",
+  "metadata": {
+    "annotations": {
+      "harvesterhci.io/mac-address": "{\"nic-0\":\"b2:9f:3f:a4:a5:bc\"}",
+      "harvesterhci.io/vmRunStrategy": "RerunOnFailure",
+      "harvesterhci.io/volumeClaimTemplates": "[{\"metadata\":{\"name\":\"ktc-play-cp-prxfd-vmgqw-disk-0-vtk8x\",\"creationTimestamp\":null,\"annotations\":{\"harvesterhci.io/imageId\":\"ktc/image-4mgl2\"}},\"spec\":{\"accessModes\":[\"ReadWriteMany\"],\"resources\":{\"requests\":{\"storage\":\"40Gi\"}},\"storageClassName\":\"longhorn-image-4mgl2\",\"volumeMode\":\"Block\"},\"status\":{}}]",
+      "kubevirt.io/latest-observed-api-version": "v1",
+      "kubevirt.io/storage-observed-api-version": "v1"
+    },
+    "creationTimestamp": "2026-01-06T12:02:06Z",
+    "finalizers": [
+      "kubevirt.io/virtualMachineControllerFinalize",
+      "wrangler.cattle.io/VMController.CleanupPVCAndSnapshot"
+    ],
+    "generation": 1,
+    "labels": {
+      "guestcluster.harvesterhci.io/name": "ktc-play",
+      "harvesterhci.io/creator": "docker-machine-driver-harvester",
+      "harvesterhci.io/machineSetName": "ktc-ktc-play-cp",
+      "harvesterhci.io/vmName": "ktc-play-cp-prxfd-vmgqw",
+      "nodepool.harvesterhci.io/name": "cp-prxfd"
+    },
+    "name": "ktc-play-cp-prxfd-vmgqw",
+    "namespace": "ktc",
+    "resourceVersion": "422619857",
+    "uid": "c2d8c2a7-85d6-4404-82ec-7a928b51aec0"
+  },
+  "spec": {
+    "runStrategy": "RerunOnFailure",
+    "template": {
+      "metadata": {
+        "annotations": {
+          "harvesterhci.io/sshNames": "[]",
+          "harvesterhci.io/waitForLeaseInterfaceNames": "[]"
+        },
+        "creationTimestamp": null,
+        "labels": {
+          "guestcluster.harvesterhci.io/name": "ktc-play",
+          "harvesterhci.io/creator": "docker-machine-driver-harvester",
+          "harvesterhci.io/machineSetName": "ktc-ktc-play-cp",
+          "harvesterhci.io/vmName": "ktc-play-cp-prxfd-vmgqw",
+          "nodepool.harvesterhci.io/name": "cp-prxfd"
+        }
+      },
+      "spec": {
+        "affinity": {
+          "nodeAffinity": {
+            "requiredDuringSchedulingIgnoredDuringExecution": {
+              "nodeSelectorTerms": [
+                {
+                  "matchExpressions": [
+                    {
+                      "key": "network.harvesterhci.io/oob",
+                      "operator": "In",
+                      "values": [
+                        "true"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "podAntiAffinity": {
+            "preferredDuringSchedulingIgnoredDuringExecution": [
+              {
+                "podAffinityTerm": {
+                  "labelSelector": {
+                    "matchExpressions": [
+                      {
+                        "key": "harvesterhci.io/creator",
+                        "operator": "Exists"
+                      }
+                    ]
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                },
+                "weight": 100
+              }
+            ]
+          }
+        },
+        "architecture": "amd64",
+        "domain": {
+          "cpu": {
+            "cores": 2
+          },
+          "devices": {
+            "disks": [
+              {
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "cloudinitdisk"
+              },
+              {
+                "bootOrder": 1,
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "disk-0"
+              }
+            ],
+            "interfaces": [
+              {
+                "bridge": {},
+                "model": "virtio",
+                "name": "nic-0"
+              }
+            ]
+          },
+          "machine": {
+            "type": "q35"
+          },
+          "memory": {
+            "guest": "4Gi"
+          },
+          "resources": {
+            "limits": {
+              "cpu": "2",
+              "memory": "4Gi"
+            },
+            "requests": {
+              "cpu": "125m",
+              "memory": "2730Mi"
+            }
+          }
+        },
+        "evictionStrategy": "LiveMigrateIfPossible",
+        "networks": [
+          {
+            "multus": {
+              "networkName": "ktc/vlan2001"
+            },
+            "name": "nic-0"
+          }
+        ],
+        "terminationGracePeriodSeconds": 120,
+        "volumes": [
+          {
+            "cloudInitNoCloud": {
+              "secretRef": {
+                "name": "ktc-play-cp-prxfd-vmgqw-cloudinit"
+              }
+            },
+            "name": "cloudinitdisk"
+          },
+          {
+            "name": "disk-0",
+            "persistentVolumeClaim": {
+              "claimName": "ktc-play-cp-prxfd-vmgqw-disk-0-vtk8x"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2026-01-06T12:02:21Z",
+        "status": "True",
+        "type": "Ready"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "LiveMigratable"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "StorageLiveMigratable"
+      },
+      {
+        "lastProbeTime": "2026-01-06T12:03:40Z",
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "AgentConnected"
+      }
+    ],
+    "created": true,
+    "desiredGeneration": 1,
+    "observedGeneration": 1,
+    "printableStatus": "Running",
+    "ready": true,
+    "runStrategy": "RerunOnFailure",
+    "volumeSnapshotStatuses": [
+      {
+        "enabled": false,
+        "name": "cloudinitdisk",
+        "reason": "Snapshot is not supported for this volumeSource type [cloudinitdisk]"
+      },
+      {
+        "enabled": true,
+        "name": "disk-0"
+      }
+    ]
+  }
+}
+{
+  "apiVersion": "kubevirt.io/v1",
+  "kind": "VirtualMachine",
+  "metadata": {
+    "annotations": {
+      "harvesterhci.io/mac-address": "{\"nic-0\":\"3a:a7:7e:3e:eb:52\"}",
+      "harvesterhci.io/vmRunStrategy": "RerunOnFailure",
+      "harvesterhci.io/volumeClaimTemplates": "[{\"metadata\":{\"name\":\"ktc-play-cp-prxfd-x5dbt-disk-0-4pw4d\",\"creationTimestamp\":null,\"annotations\":{\"harvesterhci.io/imageId\":\"ktc/image-4mgl2\"}},\"spec\":{\"accessModes\":[\"ReadWriteMany\"],\"resources\":{\"requests\":{\"storage\":\"40Gi\"}},\"storageClassName\":\"longhorn-image-4mgl2\",\"volumeMode\":\"Block\"},\"status\":{}}]",
+      "kubevirt.io/latest-observed-api-version": "v1",
+      "kubevirt.io/storage-observed-api-version": "v1"
+    },
+    "creationTimestamp": "2025-11-25T12:47:09Z",
+    "finalizers": [
+      "kubevirt.io/virtualMachineControllerFinalize",
+      "wrangler.cattle.io/VMController.CleanupPVCAndSnapshot"
+    ],
+    "generation": 1,
+    "labels": {
+      "guestcluster.harvesterhci.io/name": "ktc-play",
+      "harvesterhci.io/creator": "docker-machine-driver-harvester",
+      "harvesterhci.io/machineSetName": "ktc-ktc-play-cp",
+      "harvesterhci.io/vmName": "ktc-play-cp-prxfd-x5dbt",
+      "nodepool.harvesterhci.io/name": "cp-prxfd"
+    },
+    "name": "ktc-play-cp-prxfd-x5dbt",
+    "namespace": "ktc",
+    "resourceVersion": "339486208",
+    "uid": "4b4db8c9-245c-4285-b020-6496a0e08e60"
+  },
+  "spec": {
+    "runStrategy": "RerunOnFailure",
+    "template": {
+      "metadata": {
+        "annotations": {
+          "harvesterhci.io/sshNames": "[]",
+          "harvesterhci.io/waitForLeaseInterfaceNames": "[]"
+        },
+        "creationTimestamp": null,
+        "labels": {
+          "guestcluster.harvesterhci.io/name": "ktc-play",
+          "harvesterhci.io/creator": "docker-machine-driver-harvester",
+          "harvesterhci.io/machineSetName": "ktc-ktc-play-cp",
+          "harvesterhci.io/vmName": "ktc-play-cp-prxfd-x5dbt",
+          "nodepool.harvesterhci.io/name": "cp-prxfd"
+        }
+      },
+      "spec": {
+        "affinity": {
+          "nodeAffinity": {
+            "requiredDuringSchedulingIgnoredDuringExecution": {
+              "nodeSelectorTerms": [
+                {
+                  "matchExpressions": [
+                    {
+                      "key": "network.harvesterhci.io/oob",
+                      "operator": "In",
+                      "values": [
+                        "true"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "podAntiAffinity": {
+            "preferredDuringSchedulingIgnoredDuringExecution": [
+              {
+                "podAffinityTerm": {
+                  "labelSelector": {
+                    "matchExpressions": [
+                      {
+                        "key": "harvesterhci.io/creator",
+                        "operator": "Exists"
+                      }
+                    ]
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                },
+                "weight": 100
+              }
+            ]
+          }
+        },
+        "architecture": "amd64",
+        "domain": {
+          "cpu": {
+            "cores": 2
+          },
+          "devices": {
+            "disks": [
+              {
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "cloudinitdisk"
+              },
+              {
+                "bootOrder": 1,
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "disk-0"
+              }
+            ],
+            "interfaces": [
+              {
+                "bridge": {},
+                "model": "virtio",
+                "name": "nic-0"
+              }
+            ]
+          },
+          "machine": {
+            "type": "q35"
+          },
+          "memory": {
+            "guest": "4Gi"
+          },
+          "resources": {
+            "limits": {
+              "cpu": "2",
+              "memory": "4Gi"
+            },
+            "requests": {
+              "cpu": "125m",
+              "memory": "2730Mi"
+            }
+          }
+        },
+        "evictionStrategy": "LiveMigrateIfPossible",
+        "networks": [
+          {
+            "multus": {
+              "networkName": "ktc/vlan2001"
+            },
+            "name": "nic-0"
+          }
+        ],
+        "terminationGracePeriodSeconds": 120,
+        "volumes": [
+          {
+            "cloudInitNoCloud": {
+              "secretRef": {
+                "name": "ktc-play-cp-prxfd-x5dbt-cloudinit"
+              }
+            },
+            "name": "cloudinitdisk"
+          },
+          {
+            "name": "disk-0",
+            "persistentVolumeClaim": {
+              "claimName": "ktc-play-cp-prxfd-x5dbt-disk-0-4pw4d"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2025-11-25T12:47:40Z",
+        "status": "True",
+        "type": "Ready"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "LiveMigratable"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "StorageLiveMigratable"
+      },
+      {
+        "lastProbeTime": "2025-11-25T12:49:09Z",
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "AgentConnected"
+      }
+    ],
+    "created": true,
+    "desiredGeneration": 1,
+    "observedGeneration": 1,
+    "printableStatus": "Running",
+    "ready": true,
+    "runStrategy": "RerunOnFailure",
+    "volumeSnapshotStatuses": [
+      {
+        "enabled": false,
+        "name": "cloudinitdisk",
+        "reason": "Snapshot is not supported for this volumeSource type [cloudinitdisk]"
+      },
+      {
+        "enabled": true,
+        "name": "disk-0"
+      }
+    ]
+  }
+}
+{
+  "apiVersion": "kubevirt.io/v1",
+  "kind": "VirtualMachine",
+  "metadata": {
+    "annotations": {
+      "harvesterhci.io/mac-address": "{\"nic-0\":\"22:1b:74:27:57:17\"}",
+      "harvesterhci.io/vmRunStrategy": "RerunOnFailure",
+      "harvesterhci.io/volumeClaimTemplates": "[{\"metadata\":{\"name\":\"ktc-play-worker-4ffhh-2s9cs-disk-0-25x27\",\"creationTimestamp\":null,\"annotations\":{\"harvesterhci.io/imageId\":\"ktc/image-4mgl2\"}},\"spec\":{\"accessModes\":[\"ReadWriteMany\"],\"resources\":{\"requests\":{\"storage\":\"40Gi\"}},\"storageClassName\":\"longhorn-image-4mgl2\",\"volumeMode\":\"Block\"},\"status\":{}}]",
+      "kubevirt.io/latest-observed-api-version": "v1",
+      "kubevirt.io/storage-observed-api-version": "v1"
+    },
+    "creationTimestamp": "2025-11-25T12:47:10Z",
+    "finalizers": [
+      "kubevirt.io/virtualMachineControllerFinalize",
+      "wrangler.cattle.io/VMController.CleanupPVCAndSnapshot"
+    ],
+    "generation": 3,
+    "labels": {
+      "guestcluster.harvesterhci.io/name": "ktc-play",
+      "harvesterhci.io/creator": "docker-machine-driver-harvester",
+      "harvesterhci.io/machineSetName": "ktc-ktc-play-worker",
+      "harvesterhci.io/vmName": "ktc-play-worker-4ffhh-2s9cs",
+      "nodepool.harvesterhci.io/name": "worker-4ffhh"
+    },
+    "name": "ktc-play-worker-4ffhh-2s9cs",
+    "namespace": "ktc",
+    "resourceVersion": "422395799",
+    "uid": "bab6a0b0-12ba-496e-9db8-472f3abeeadc"
+  },
+  "spec": {
+    "runStrategy": "RerunOnFailure",
+    "template": {
+      "metadata": {
+        "annotations": {
+          "harvesterhci.io/sshNames": "[]",
+          "harvesterhci.io/waitForLeaseInterfaceNames": "[]"
+        },
+        "creationTimestamp": null,
+        "labels": {
+          "guestcluster.harvesterhci.io/name": "ktc-play",
+          "harvesterhci.io/creator": "docker-machine-driver-harvester",
+          "harvesterhci.io/machineSetName": "ktc-ktc-play-worker",
+          "harvesterhci.io/vmName": "ktc-play-worker-4ffhh-2s9cs",
+          "nodepool.harvesterhci.io/name": "worker-4ffhh"
+        }
+      },
+      "spec": {
+        "affinity": {
+          "nodeAffinity": {
+            "requiredDuringSchedulingIgnoredDuringExecution": {
+              "nodeSelectorTerms": [
+                {
+                  "matchExpressions": [
+                    {
+                      "key": "network.harvesterhci.io/oob",
+                      "operator": "In",
+                      "values": [
+                        "true"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "podAntiAffinity": {
+            "preferredDuringSchedulingIgnoredDuringExecution": [
+              {
+                "podAffinityTerm": {
+                  "labelSelector": {
+                    "matchExpressions": [
+                      {
+                        "key": "harvesterhci.io/creator",
+                        "operator": "Exists"
+                      }
+                    ]
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                },
+                "weight": 100
+              }
+            ]
+          }
+        },
+        "architecture": "amd64",
+        "domain": {
+          "cpu": {
+            "cores": 4
+          },
+          "devices": {
+            "disks": [
+              {
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "cloudinitdisk"
+              },
+              {
+                "bootOrder": 1,
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "disk-0"
+              }
+            ],
+            "interfaces": [
+              {
+                "bridge": {},
+                "model": "virtio",
+                "name": "nic-0"
+              }
+            ]
+          },
+          "machine": {
+            "type": "q35"
+          },
+          "memory": {
+            "guest": "8Gi"
+          },
+          "resources": {
+            "limits": {
+              "cpu": "4",
+              "memory": "8Gi"
+            },
+            "requests": {
+              "cpu": "250m",
+              "memory": "5461Mi"
+            }
+          }
+        },
+        "evictionStrategy": "LiveMigrateIfPossible",
+        "networks": [
+          {
+            "multus": {
+              "networkName": "ktc/vlan2001"
+            },
+            "name": "nic-0"
+          }
+        ],
+        "terminationGracePeriodSeconds": 120,
+        "volumes": [
+          {
+            "cloudInitNoCloud": {
+              "secretRef": {
+                "name": "ktc-play-worker-4ffhh-2s9cs-cloudinit"
+              }
+            },
+            "name": "cloudinitdisk"
+          },
+          {
+            "name": "disk-0",
+            "persistentVolumeClaim": {
+              "claimName": "ktc-play-worker-4ffhh-2s9cs-disk-0-25x27"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2025-11-25T12:47:42Z",
+        "status": "True",
+        "type": "Ready"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "LiveMigratable"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "StorageLiveMigratable"
+      },
+      {
+        "lastProbeTime": "2025-11-25T12:49:19Z",
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "AgentConnected"
+      }
+    ],
+    "created": true,
+    "desiredGeneration": 3,
+    "observedGeneration": 3,
+    "printableStatus": "Running",
+    "ready": true,
+    "runStrategy": "RerunOnFailure",
+    "volumeSnapshotStatuses": [
+      {
+        "enabled": false,
+        "name": "cloudinitdisk",
+        "reason": "Snapshot is not supported for this volumeSource type [cloudinitdisk]"
+      },
+      {
+        "enabled": true,
+        "name": "disk-0"
+      }
+    ]
+  }
+}
+{
+  "apiVersion": "kubevirt.io/v1",
+  "kind": "VirtualMachine",
+  "metadata": {
+    "annotations": {
+      "harvesterhci.io/mac-address": "{\"nic-0\":\"fe:95:ca:91:6a:7f\"}",
+      "harvesterhci.io/vmRunStrategy": "RerunOnFailure",
+      "harvesterhci.io/volumeClaimTemplates": "[{\"metadata\":{\"name\":\"ktc-play-worker-4ffhh-5mn5w-disk-0-l47mz\",\"creationTimestamp\":null,\"annotations\":{\"harvesterhci.io/imageId\":\"ktc/image-4mgl2\"}},\"spec\":{\"accessModes\":[\"ReadWriteMany\"],\"resources\":{\"requests\":{\"storage\":\"40Gi\"}},\"storageClassName\":\"longhorn-image-4mgl2\",\"volumeMode\":\"Block\"},\"status\":{}}]",
+      "kubevirt.io/latest-observed-api-version": "v1",
+      "kubevirt.io/storage-observed-api-version": "v1"
+    },
+    "creationTimestamp": "2025-11-25T12:47:09Z",
+    "finalizers": [
+      "kubevirt.io/virtualMachineControllerFinalize",
+      "wrangler.cattle.io/VMController.CleanupPVCAndSnapshot"
+    ],
+    "generation": 203,
+    "labels": {
+      "guestcluster.harvesterhci.io/name": "ktc-play",
+      "harvesterhci.io/creator": "docker-machine-driver-harvester",
+      "harvesterhci.io/machineSetName": "ktc-ktc-play-worker",
+      "harvesterhci.io/vmName": "ktc-play-worker-4ffhh-5mn5w",
+      "nodepool.harvesterhci.io/name": "worker-4ffhh"
+    },
+    "name": "ktc-play-worker-4ffhh-5mn5w",
+    "namespace": "ktc",
+    "resourceVersion": "423790044",
+    "uid": "3b828d76-39a1-41e4-90d3-878d53a1b83a"
+  },
+  "spec": {
+    "runStrategy": "RerunOnFailure",
+    "template": {
+      "metadata": {
+        "annotations": {
+          "harvesterhci.io/sshNames": "[]",
+          "harvesterhci.io/waitForLeaseInterfaceNames": "[]"
+        },
+        "creationTimestamp": null,
+        "labels": {
+          "guestcluster.harvesterhci.io/name": "ktc-play",
+          "harvesterhci.io/creator": "docker-machine-driver-harvester",
+          "harvesterhci.io/machineSetName": "ktc-ktc-play-worker",
+          "harvesterhci.io/vmName": "ktc-play-worker-4ffhh-5mn5w",
+          "nodepool.harvesterhci.io/name": "worker-4ffhh"
+        }
+      },
+      "spec": {
+        "affinity": {
+          "nodeAffinity": {
+            "requiredDuringSchedulingIgnoredDuringExecution": {
+              "nodeSelectorTerms": [
+                {
+                  "matchExpressions": [
+                    {
+                      "key": "network.harvesterhci.io/oob",
+                      "operator": "In",
+                      "values": [
+                        "true"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "podAntiAffinity": {
+            "preferredDuringSchedulingIgnoredDuringExecution": [
+              {
+                "podAffinityTerm": {
+                  "labelSelector": {
+                    "matchExpressions": [
+                      {
+                        "key": "harvesterhci.io/creator",
+                        "operator": "Exists"
+                      }
+                    ]
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                },
+                "weight": 100
+              }
+            ]
+          }
+        },
+        "architecture": "amd64",
+        "domain": {
+          "cpu": {
+            "cores": 4
+          },
+          "devices": {
+            "disks": [
+              {
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "cloudinitdisk"
+              },
+              {
+                "bootOrder": 1,
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "disk-0"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-b3681a91-e9a7-47d3-899a-01a2c328c0f4"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-7cb3d199-24b0-4811-98bb-b56e8409d1ad"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-d55222fd-3405-4d04-8cc7-4a8f24031d05"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-52932f68-6ac4-4fb1-9be3-a189cb733b7a"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-73003430-8f1f-47ba-9cd1-d12d03bc8d09"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-01d969d1-6a04-4897-aaca-5890a6745827"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-8f8f896e-0ceb-42f2-9ebe-d2a3565650a7"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-fa56aaff-0e2c-4b3a-82f1-699df607f45f"
+              }
+            ],
+            "interfaces": [
+              {
+                "bridge": {},
+                "model": "virtio",
+                "name": "nic-0"
+              }
+            ]
+          },
+          "machine": {
+            "type": "q35"
+          },
+          "memory": {
+            "guest": "8Gi"
+          },
+          "resources": {
+            "limits": {
+              "cpu": "4",
+              "memory": "8Gi"
+            },
+            "requests": {
+              "cpu": "250m",
+              "memory": "5461Mi"
+            }
+          }
+        },
+        "evictionStrategy": "LiveMigrateIfPossible",
+        "networks": [
+          {
+            "multus": {
+              "networkName": "ktc/vlan2001"
+            },
+            "name": "nic-0"
+          }
+        ],
+        "terminationGracePeriodSeconds": 120,
+        "volumes": [
+          {
+            "cloudInitNoCloud": {
+              "secretRef": {
+                "name": "ktc-play-worker-4ffhh-5mn5w-cloudinit"
+              }
+            },
+            "name": "cloudinitdisk"
+          },
+          {
+            "name": "disk-0",
+            "persistentVolumeClaim": {
+              "claimName": "ktc-play-worker-4ffhh-5mn5w-disk-0-l47mz"
+            }
+          },
+          {
+            "name": "pvc-b3681a91-e9a7-47d3-899a-01a2c328c0f4",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-b3681a91-e9a7-47d3-899a-01a2c328c0f4",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-7cb3d199-24b0-4811-98bb-b56e8409d1ad",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-7cb3d199-24b0-4811-98bb-b56e8409d1ad",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-d55222fd-3405-4d04-8cc7-4a8f24031d05",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-d55222fd-3405-4d04-8cc7-4a8f24031d05",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-52932f68-6ac4-4fb1-9be3-a189cb733b7a",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-52932f68-6ac4-4fb1-9be3-a189cb733b7a",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-73003430-8f1f-47ba-9cd1-d12d03bc8d09",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-73003430-8f1f-47ba-9cd1-d12d03bc8d09",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-01d969d1-6a04-4897-aaca-5890a6745827",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-01d969d1-6a04-4897-aaca-5890a6745827",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-8f8f896e-0ceb-42f2-9ebe-d2a3565650a7",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-8f8f896e-0ceb-42f2-9ebe-d2a3565650a7",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-fa56aaff-0e2c-4b3a-82f1-699df607f45f",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-fa56aaff-0e2c-4b3a-82f1-699df607f45f",
+              "hotpluggable": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2025-11-25T12:47:41Z",
+        "status": "True",
+        "type": "Ready"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "LiveMigratable"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "StorageLiveMigratable"
+      },
+      {
+        "lastProbeTime": "2025-11-25T12:49:02Z",
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "AgentConnected"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2026-01-06T23:37:34Z",
+        "message": "Error encountered when trying to update vm according to add volume and/or memory dump requests: admission webhook \"validator.harvesterhci.io\" denied the request: the volume pvc-5a65e963-e8f2-41a6-ab01-51953f3df175 is already used by VM ktc/ktc-play-worker-4ffhh-9j8sd",
+        "reason": "FailedUpdateError",
+        "status": "True",
+        "type": "Failure"
+      }
+    ],
+    "created": true,
+    "desiredGeneration": 203,
+    "observedGeneration": 6,
+    "printableStatus": "Running",
+    "ready": true,
+    "runStrategy": "RerunOnFailure",
+    "volumeRequests": [
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-5a65e963-e8f2-41a6-ab01-51953f3df175"
+          },
+          "name": "pvc-5a65e963-e8f2-41a6-ab01-51953f3df175",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-5a65e963-e8f2-41a6-ab01-51953f3df175",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-300df799-7437-44d3-b52d-6cfad6b7d68f"
+          },
+          "name": "pvc-300df799-7437-44d3-b52d-6cfad6b7d68f",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-300df799-7437-44d3-b52d-6cfad6b7d68f",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-15da75d7-ae29-4dd6-88ed-2b628209d1c4"
+          },
+          "name": "pvc-15da75d7-ae29-4dd6-88ed-2b628209d1c4",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-15da75d7-ae29-4dd6-88ed-2b628209d1c4",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-40780bf1-c051-46fe-9dd8-2de91edb46fd"
+          },
+          "name": "pvc-40780bf1-c051-46fe-9dd8-2de91edb46fd",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-40780bf1-c051-46fe-9dd8-2de91edb46fd",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-9942d318-de86-427a-81d2-432a37a504df"
+          },
+          "name": "pvc-9942d318-de86-427a-81d2-432a37a504df",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-9942d318-de86-427a-81d2-432a37a504df",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-fc5a338f-1f6e-482e-bf0d-45a67b7b2c3a"
+          },
+          "name": "pvc-fc5a338f-1f6e-482e-bf0d-45a67b7b2c3a",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-fc5a338f-1f6e-482e-bf0d-45a67b7b2c3a",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-a6e23c6b-0fe6-489a-854d-2ccb2b6cd755"
+          },
+          "name": "pvc-a6e23c6b-0fe6-489a-854d-2ccb2b6cd755",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-a6e23c6b-0fe6-489a-854d-2ccb2b6cd755",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-6494ba6f-ed55-4f74-9b32-7de906752270"
+          },
+          "name": "pvc-6494ba6f-ed55-4f74-9b32-7de906752270",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-6494ba6f-ed55-4f74-9b32-7de906752270",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-f448075c-8d57-48d1-bb79-ef18ba0d00a2"
+          },
+          "name": "pvc-f448075c-8d57-48d1-bb79-ef18ba0d00a2",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-f448075c-8d57-48d1-bb79-ef18ba0d00a2",
+              "hotpluggable": true
+            }
+          }
+        }
+      }
+    ],
+    "volumeSnapshotStatuses": [
+      {
+        "enabled": false,
+        "name": "cloudinitdisk",
+        "reason": "Snapshot is not supported for this volumeSource type [cloudinitdisk]"
+      },
+      {
+        "enabled": true,
+        "name": "disk-0"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-b3681a91-e9a7-47d3-899a-01a2c328c0f4"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-7cb3d199-24b0-4811-98bb-b56e8409d1ad"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-d55222fd-3405-4d04-8cc7-4a8f24031d05"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-52932f68-6ac4-4fb1-9be3-a189cb733b7a"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-73003430-8f1f-47ba-9cd1-d12d03bc8d09"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-01d969d1-6a04-4897-aaca-5890a6745827"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-8f8f896e-0ceb-42f2-9ebe-d2a3565650a7"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-fa56aaff-0e2c-4b3a-82f1-699df607f45f"
+      }
+    ]
+  }
+}
+{
+  "apiVersion": "kubevirt.io/v1",
+  "kind": "VirtualMachine",
+  "metadata": {
+    "annotations": {
+      "harvesterhci.io/mac-address": "{\"nic-0\":\"f2:ad:82:ae:24:e0\"}",
+      "harvesterhci.io/vmRunStrategy": "RerunOnFailure",
+      "harvesterhci.io/volumeClaimTemplates": "[{\"metadata\":{\"name\":\"ktc-play-worker-4ffhh-9j8sd-disk-0-dmz7g\",\"creationTimestamp\":null,\"annotations\":{\"harvesterhci.io/imageId\":\"ktc/image-4mgl2\"}},\"spec\":{\"accessModes\":[\"ReadWriteMany\"],\"resources\":{\"requests\":{\"storage\":\"40Gi\"}},\"storageClassName\":\"longhorn-image-4mgl2\",\"volumeMode\":\"Block\"},\"status\":{}}]",
+      "kubevirt.io/latest-observed-api-version": "v1",
+      "kubevirt.io/storage-observed-api-version": "v1"
+    },
+    "creationTimestamp": "2025-11-25T12:47:10Z",
+    "finalizers": [
+      "kubevirt.io/virtualMachineControllerFinalize",
+      "wrangler.cattle.io/VMController.CleanupPVCAndSnapshot"
+    ],
+    "generation": 147,
+    "labels": {
+      "guestcluster.harvesterhci.io/name": "ktc-play",
+      "harvesterhci.io/creator": "docker-machine-driver-harvester",
+      "harvesterhci.io/machineSetName": "ktc-ktc-play-worker",
+      "harvesterhci.io/vmName": "ktc-play-worker-4ffhh-9j8sd",
+      "nodepool.harvesterhci.io/name": "worker-4ffhh"
+    },
+    "name": "ktc-play-worker-4ffhh-9j8sd",
+    "namespace": "ktc",
+    "resourceVersion": "423825119",
+    "uid": "50faf6da-392a-4144-90c8-d667503ee024"
+  },
+  "spec": {
+    "runStrategy": "RerunOnFailure",
+    "template": {
+      "metadata": {
+        "annotations": {
+          "harvesterhci.io/sshNames": "[]",
+          "harvesterhci.io/waitForLeaseInterfaceNames": "[]"
+        },
+        "creationTimestamp": null,
+        "labels": {
+          "guestcluster.harvesterhci.io/name": "ktc-play",
+          "harvesterhci.io/creator": "docker-machine-driver-harvester",
+          "harvesterhci.io/machineSetName": "ktc-ktc-play-worker",
+          "harvesterhci.io/vmName": "ktc-play-worker-4ffhh-9j8sd",
+          "nodepool.harvesterhci.io/name": "worker-4ffhh"
+        }
+      },
+      "spec": {
+        "affinity": {
+          "nodeAffinity": {
+            "requiredDuringSchedulingIgnoredDuringExecution": {
+              "nodeSelectorTerms": [
+                {
+                  "matchExpressions": [
+                    {
+                      "key": "network.harvesterhci.io/oob",
+                      "operator": "In",
+                      "values": [
+                        "true"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "podAntiAffinity": {
+            "preferredDuringSchedulingIgnoredDuringExecution": [
+              {
+                "podAffinityTerm": {
+                  "labelSelector": {
+                    "matchExpressions": [
+                      {
+                        "key": "harvesterhci.io/creator",
+                        "operator": "Exists"
+                      }
+                    ]
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                },
+                "weight": 100
+              }
+            ]
+          }
+        },
+        "architecture": "amd64",
+        "domain": {
+          "cpu": {
+            "cores": 4
+          },
+          "devices": {
+            "disks": [
+              {
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "cloudinitdisk"
+              },
+              {
+                "bootOrder": 1,
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "disk-0"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-eb119438-8f12-473a-bb0a-fed703f7a334"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-dd6f2cbc-3803-40d8-ab21-1fbdd42ad596"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-e43bd2ae-58ac-43d8-9447-0a26d30e312e"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-64cee5ce-2540-4ab1-b965-e4bc0bef28f1"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-19c3114e-fa09-4ba2-ba3e-674228e8a400"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-5a65e963-e8f2-41a6-ab01-51953f3df175"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-43fce52b-1a2c-4608-8c94-ea4f1c32f99e"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-9a02dd5e-c2fa-4641-a75d-3719b61cdefb"
+              }
+            ],
+            "interfaces": [
+              {
+                "bridge": {},
+                "model": "virtio",
+                "name": "nic-0"
+              }
+            ]
+          },
+          "machine": {
+            "type": "q35"
+          },
+          "memory": {
+            "guest": "8Gi"
+          },
+          "resources": {
+            "limits": {
+              "cpu": "4",
+              "memory": "8Gi"
+            },
+            "requests": {
+              "cpu": "250m",
+              "memory": "5461Mi"
+            }
+          }
+        },
+        "evictionStrategy": "LiveMigrateIfPossible",
+        "networks": [
+          {
+            "multus": {
+              "networkName": "ktc/vlan2001"
+            },
+            "name": "nic-0"
+          }
+        ],
+        "terminationGracePeriodSeconds": 120,
+        "volumes": [
+          {
+            "cloudInitNoCloud": {
+              "secretRef": {
+                "name": "ktc-play-worker-4ffhh-9j8sd-cloudinit"
+              }
+            },
+            "name": "cloudinitdisk"
+          },
+          {
+            "name": "disk-0",
+            "persistentVolumeClaim": {
+              "claimName": "ktc-play-worker-4ffhh-9j8sd-disk-0-dmz7g"
+            }
+          },
+          {
+            "name": "pvc-eb119438-8f12-473a-bb0a-fed703f7a334",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-eb119438-8f12-473a-bb0a-fed703f7a334",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-dd6f2cbc-3803-40d8-ab21-1fbdd42ad596",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-dd6f2cbc-3803-40d8-ab21-1fbdd42ad596",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-e43bd2ae-58ac-43d8-9447-0a26d30e312e",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-e43bd2ae-58ac-43d8-9447-0a26d30e312e",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-64cee5ce-2540-4ab1-b965-e4bc0bef28f1",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-64cee5ce-2540-4ab1-b965-e4bc0bef28f1",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-19c3114e-fa09-4ba2-ba3e-674228e8a400",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-19c3114e-fa09-4ba2-ba3e-674228e8a400",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-5a65e963-e8f2-41a6-ab01-51953f3df175",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-5a65e963-e8f2-41a6-ab01-51953f3df175",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-43fce52b-1a2c-4608-8c94-ea4f1c32f99e",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-43fce52b-1a2c-4608-8c94-ea4f1c32f99e",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-9a02dd5e-c2fa-4641-a75d-3719b61cdefb",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-9a02dd5e-c2fa-4641-a75d-3719b61cdefb",
+              "hotpluggable": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2025-11-25T12:47:39Z",
+        "status": "True",
+        "type": "Ready"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "LiveMigratable"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "StorageLiveMigratable"
+      },
+      {
+        "lastProbeTime": "2025-11-25T12:48:57Z",
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "AgentConnected"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2026-01-06T23:37:03Z",
+        "message": "Error encountered when trying to update vm according to add volume and/or memory dump requests: admission webhook \"validator.harvesterhci.io\" denied the request: the volume pvc-cad04efa-cb8c-43b2-9e03-46c68765104e is already used by VM ktc/ktc-play-worker-4ffhh-k77tr",
+        "reason": "FailedUpdateError",
+        "status": "True",
+        "type": "Failure"
+      }
+    ],
+    "created": true,
+    "desiredGeneration": 147,
+    "observedGeneration": 5,
+    "printableStatus": "Running",
+    "ready": true,
+    "runStrategy": "RerunOnFailure",
+    "volumeRequests": [
+      {
+        "removeVolumeOptions": {
+          "name": "pvc-eb119438-8f12-473a-bb0a-fed703f7a334"
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-cad04efa-cb8c-43b2-9e03-46c68765104e"
+          },
+          "name": "pvc-cad04efa-cb8c-43b2-9e03-46c68765104e",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-cad04efa-cb8c-43b2-9e03-46c68765104e",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "removeVolumeOptions": {
+          "name": "pvc-19c3114e-fa09-4ba2-ba3e-674228e8a400"
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-7b7d0ddf-8348-440b-9dff-1fb714c8cdb1"
+          },
+          "name": "pvc-7b7d0ddf-8348-440b-9dff-1fb714c8cdb1",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-7b7d0ddf-8348-440b-9dff-1fb714c8cdb1",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "removeVolumeOptions": {
+          "name": "pvc-64cee5ce-2540-4ab1-b965-e4bc0bef28f1"
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-c8a2e7d7-33d7-4dc5-840e-85be8ba03568"
+          },
+          "name": "pvc-c8a2e7d7-33d7-4dc5-840e-85be8ba03568",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-c8a2e7d7-33d7-4dc5-840e-85be8ba03568",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-172ecc2f-cecf-4b9f-af9b-7a2c59807193"
+          },
+          "name": "pvc-172ecc2f-cecf-4b9f-af9b-7a2c59807193",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-172ecc2f-cecf-4b9f-af9b-7a2c59807193",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "removeVolumeOptions": {
+          "name": "pvc-5a65e963-e8f2-41a6-ab01-51953f3df175"
+        }
+      },
+      {
+        "removeVolumeOptions": {
+          "name": "pvc-e43bd2ae-58ac-43d8-9447-0a26d30e312e"
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-b9d84c60-008a-40a1-b596-bdbf79e2f897"
+          },
+          "name": "pvc-b9d84c60-008a-40a1-b596-bdbf79e2f897",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-b9d84c60-008a-40a1-b596-bdbf79e2f897",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-dfc0a609-cb7c-44d7-970d-cdc7e19969fc"
+          },
+          "name": "pvc-dfc0a609-cb7c-44d7-970d-cdc7e19969fc",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-dfc0a609-cb7c-44d7-970d-cdc7e19969fc",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-bba848f9-eb59-46d1-973b-cabcf049d7e3"
+          },
+          "name": "pvc-bba848f9-eb59-46d1-973b-cabcf049d7e3",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-bba848f9-eb59-46d1-973b-cabcf049d7e3",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-c773808f-06e8-448f-85ea-4107b14f3f1c"
+          },
+          "name": "pvc-c773808f-06e8-448f-85ea-4107b14f3f1c",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-c773808f-06e8-448f-85ea-4107b14f3f1c",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-1c4ec5fd-c8bc-4e3e-aff6-71515e3e57a6"
+          },
+          "name": "pvc-1c4ec5fd-c8bc-4e3e-aff6-71515e3e57a6",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-1c4ec5fd-c8bc-4e3e-aff6-71515e3e57a6",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-690513de-9fd2-4ad7-8dd3-fb5fd604e99a"
+          },
+          "name": "pvc-690513de-9fd2-4ad7-8dd3-fb5fd604e99a",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-690513de-9fd2-4ad7-8dd3-fb5fd604e99a",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-a26b7f86-3d89-4c8a-a91e-37b929b9c6e9"
+          },
+          "name": "pvc-a26b7f86-3d89-4c8a-a91e-37b929b9c6e9",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-a26b7f86-3d89-4c8a-a91e-37b929b9c6e9",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-26e362ee-496f-40a7-89d6-bddcf59b2e87"
+          },
+          "name": "pvc-26e362ee-496f-40a7-89d6-bddcf59b2e87",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-26e362ee-496f-40a7-89d6-bddcf59b2e87",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-d0fd5510-8197-494f-9771-0be971402e03"
+          },
+          "name": "pvc-d0fd5510-8197-494f-9771-0be971402e03",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-d0fd5510-8197-494f-9771-0be971402e03",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-835e85fb-737a-4a78-9cc5-2f1c17c3ef13"
+          },
+          "name": "pvc-835e85fb-737a-4a78-9cc5-2f1c17c3ef13",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-835e85fb-737a-4a78-9cc5-2f1c17c3ef13",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-d58d7ccd-fe39-40fa-854f-0ddf193dc259"
+          },
+          "name": "pvc-d58d7ccd-fe39-40fa-854f-0ddf193dc259",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-d58d7ccd-fe39-40fa-854f-0ddf193dc259",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-3b96a678-6c6b-438b-88c5-d725f2076771"
+          },
+          "name": "pvc-3b96a678-6c6b-438b-88c5-d725f2076771",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-3b96a678-6c6b-438b-88c5-d725f2076771",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-896e8047-cc1b-4bf8-90dc-30bb2146ef7e"
+          },
+          "name": "pvc-896e8047-cc1b-4bf8-90dc-30bb2146ef7e",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-896e8047-cc1b-4bf8-90dc-30bb2146ef7e",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-cf93e651-7957-4436-b14c-d44147376af3"
+          },
+          "name": "pvc-cf93e651-7957-4436-b14c-d44147376af3",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-cf93e651-7957-4436-b14c-d44147376af3",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-d2a1ed14-f4dc-4992-aaa6-9cce22caab34"
+          },
+          "name": "pvc-d2a1ed14-f4dc-4992-aaa6-9cce22caab34",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-d2a1ed14-f4dc-4992-aaa6-9cce22caab34",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-6c404df4-e930-426f-a213-f4f3495905a9"
+          },
+          "name": "pvc-6c404df4-e930-426f-a213-f4f3495905a9",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-6c404df4-e930-426f-a213-f4f3495905a9",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-a51504ff-bb5f-4ba5-a78a-0450ab4145c9"
+          },
+          "name": "pvc-a51504ff-bb5f-4ba5-a78a-0450ab4145c9",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-a51504ff-bb5f-4ba5-a78a-0450ab4145c9",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-0e56a610-80f0-4049-9dad-95f41d17d986"
+          },
+          "name": "pvc-0e56a610-80f0-4049-9dad-95f41d17d986",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-0e56a610-80f0-4049-9dad-95f41d17d986",
+              "hotpluggable": true
+            }
+          }
+        }
+      }
+    ],
+    "volumeSnapshotStatuses": [
+      {
+        "enabled": false,
+        "name": "cloudinitdisk",
+        "reason": "Snapshot is not supported for this volumeSource type [cloudinitdisk]"
+      },
+      {
+        "enabled": true,
+        "name": "disk-0"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-eb119438-8f12-473a-bb0a-fed703f7a334"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-dd6f2cbc-3803-40d8-ab21-1fbdd42ad596"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-e43bd2ae-58ac-43d8-9447-0a26d30e312e"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-64cee5ce-2540-4ab1-b965-e4bc0bef28f1"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-19c3114e-fa09-4ba2-ba3e-674228e8a400"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-5a65e963-e8f2-41a6-ab01-51953f3df175"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-43fce52b-1a2c-4608-8c94-ea4f1c32f99e"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-9a02dd5e-c2fa-4641-a75d-3719b61cdefb"
+      }
+    ]
+  }
+}
+{
+  "apiVersion": "kubevirt.io/v1",
+  "kind": "VirtualMachine",
+  "metadata": {
+    "annotations": {
+      "harvesterhci.io/mac-address": "{\"nic-0\":\"e2:0f:2e:1c:e7:33\"}",
+      "harvesterhci.io/vmRunStrategy": "RerunOnFailure",
+      "harvesterhci.io/volumeClaimTemplates": "[{\"metadata\":{\"name\":\"ktc-play-worker-4ffhh-k77tr-disk-0-7spg7\",\"creationTimestamp\":null,\"annotations\":{\"harvesterhci.io/imageId\":\"ktc/image-4mgl2\"}},\"spec\":{\"accessModes\":[\"ReadWriteMany\"],\"resources\":{\"requests\":{\"storage\":\"40Gi\"}},\"storageClassName\":\"longhorn-image-4mgl2\",\"volumeMode\":\"Block\"},\"status\":{}}]",
+      "kubevirt.io/latest-observed-api-version": "v1",
+      "kubevirt.io/storage-observed-api-version": "v1"
+    },
+    "creationTimestamp": "2025-11-25T12:47:09Z",
+    "finalizers": [
+      "kubevirt.io/virtualMachineControllerFinalize",
+      "wrangler.cattle.io/VMController.CleanupPVCAndSnapshot"
+    ],
+    "generation": 133,
+    "labels": {
+      "guestcluster.harvesterhci.io/name": "ktc-play",
+      "harvesterhci.io/creator": "docker-machine-driver-harvester",
+      "harvesterhci.io/machineSetName": "ktc-ktc-play-worker",
+      "harvesterhci.io/vmName": "ktc-play-worker-4ffhh-k77tr",
+      "nodepool.harvesterhci.io/name": "worker-4ffhh"
+    },
+    "name": "ktc-play-worker-4ffhh-k77tr",
+    "namespace": "ktc",
+    "resourceVersion": "423792291",
+    "uid": "d0879542-8b88-4b78-9661-5ba74b209491"
+  },
+  "spec": {
+    "runStrategy": "RerunOnFailure",
+    "template": {
+      "metadata": {
+        "annotations": {
+          "harvesterhci.io/sshNames": "[]",
+          "harvesterhci.io/waitForLeaseInterfaceNames": "[]"
+        },
+        "creationTimestamp": null,
+        "labels": {
+          "guestcluster.harvesterhci.io/name": "ktc-play",
+          "harvesterhci.io/creator": "docker-machine-driver-harvester",
+          "harvesterhci.io/machineSetName": "ktc-ktc-play-worker",
+          "harvesterhci.io/vmName": "ktc-play-worker-4ffhh-k77tr",
+          "nodepool.harvesterhci.io/name": "worker-4ffhh"
+        }
+      },
+      "spec": {
+        "affinity": {
+          "nodeAffinity": {
+            "requiredDuringSchedulingIgnoredDuringExecution": {
+              "nodeSelectorTerms": [
+                {
+                  "matchExpressions": [
+                    {
+                      "key": "network.harvesterhci.io/oob",
+                      "operator": "In",
+                      "values": [
+                        "true"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "podAntiAffinity": {
+            "preferredDuringSchedulingIgnoredDuringExecution": [
+              {
+                "podAffinityTerm": {
+                  "labelSelector": {
+                    "matchExpressions": [
+                      {
+                        "key": "harvesterhci.io/creator",
+                        "operator": "Exists"
+                      }
+                    ]
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                },
+                "weight": 100
+              }
+            ]
+          }
+        },
+        "architecture": "amd64",
+        "domain": {
+          "cpu": {
+            "cores": 4
+          },
+          "devices": {
+            "disks": [
+              {
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "cloudinitdisk"
+              },
+              {
+                "bootOrder": 1,
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "disk-0"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-3ada33a4-7a40-4534-bbd2-851737f7a389"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-981694ce-e826-4f80-b2c5-c56ed1105f4a"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-f6e50963-c01b-42f4-be24-8fe172a221a1"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-cad04efa-cb8c-43b2-9e03-46c68765104e"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-bfe7457d-4e35-46b2-bb8b-e03b7bc8396a"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-76d28c1d-d55c-4d10-bc34-b9f6aaf40455"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-172ecc2f-cecf-4b9f-af9b-7a2c59807193"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-6b07b067-5ed2-4cc5-a6af-e6ef4446124a"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-ead635a6-4ea0-4b48-a9cc-123f182f6551"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-eb7f378a-8867-49cd-b166-d7ff5e6c1ae6"
+              }
+            ],
+            "interfaces": [
+              {
+                "bridge": {},
+                "model": "virtio",
+                "name": "nic-0"
+              }
+            ]
+          },
+          "machine": {
+            "type": "q35"
+          },
+          "memory": {
+            "guest": "8Gi"
+          },
+          "resources": {
+            "limits": {
+              "cpu": "4",
+              "memory": "8Gi"
+            },
+            "requests": {
+              "cpu": "250m",
+              "memory": "5461Mi"
+            }
+          }
+        },
+        "evictionStrategy": "LiveMigrateIfPossible",
+        "networks": [
+          {
+            "multus": {
+              "networkName": "ktc/vlan2001"
+            },
+            "name": "nic-0"
+          }
+        ],
+        "terminationGracePeriodSeconds": 120,
+        "volumes": [
+          {
+            "cloudInitNoCloud": {
+              "secretRef": {
+                "name": "ktc-play-worker-4ffhh-k77tr-cloudinit"
+              }
+            },
+            "name": "cloudinitdisk"
+          },
+          {
+            "name": "disk-0",
+            "persistentVolumeClaim": {
+              "claimName": "ktc-play-worker-4ffhh-k77tr-disk-0-7spg7"
+            }
+          },
+          {
+            "name": "pvc-3ada33a4-7a40-4534-bbd2-851737f7a389",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-3ada33a4-7a40-4534-bbd2-851737f7a389",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-981694ce-e826-4f80-b2c5-c56ed1105f4a",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-981694ce-e826-4f80-b2c5-c56ed1105f4a",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-f6e50963-c01b-42f4-be24-8fe172a221a1",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-f6e50963-c01b-42f4-be24-8fe172a221a1",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-cad04efa-cb8c-43b2-9e03-46c68765104e",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-cad04efa-cb8c-43b2-9e03-46c68765104e",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-bfe7457d-4e35-46b2-bb8b-e03b7bc8396a",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-bfe7457d-4e35-46b2-bb8b-e03b7bc8396a",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-76d28c1d-d55c-4d10-bc34-b9f6aaf40455",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-76d28c1d-d55c-4d10-bc34-b9f6aaf40455",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-172ecc2f-cecf-4b9f-af9b-7a2c59807193",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-172ecc2f-cecf-4b9f-af9b-7a2c59807193",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-6b07b067-5ed2-4cc5-a6af-e6ef4446124a",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-6b07b067-5ed2-4cc5-a6af-e6ef4446124a",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-ead635a6-4ea0-4b48-a9cc-123f182f6551",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-ead635a6-4ea0-4b48-a9cc-123f182f6551",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-eb7f378a-8867-49cd-b166-d7ff5e6c1ae6",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-eb7f378a-8867-49cd-b166-d7ff5e6c1ae6",
+              "hotpluggable": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2025-11-25T12:47:40Z",
+        "status": "True",
+        "type": "Ready"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "LiveMigratable"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "StorageLiveMigratable"
+      },
+      {
+        "lastProbeTime": "2025-11-25T12:49:10Z",
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "AgentConnected"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2026-01-06T23:37:00Z",
+        "message": "Error encountered when trying to update vm according to add volume and/or memory dump requests: admission webhook \"validator.harvesterhci.io\" denied the request: the volume pvc-64cee5ce-2540-4ab1-b965-e4bc0bef28f1 is already used by VM ktc/ktc-play-worker-4ffhh-9j8sd",
+        "reason": "FailedUpdateError",
+        "status": "True",
+        "type": "Failure"
+      }
+    ],
+    "created": true,
+    "desiredGeneration": 133,
+    "observedGeneration": 3,
+    "printableStatus": "Running",
+    "ready": true,
+    "runStrategy": "RerunOnFailure",
+    "volumeRequests": [
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-64cee5ce-2540-4ab1-b965-e4bc0bef28f1"
+          },
+          "name": "pvc-64cee5ce-2540-4ab1-b965-e4bc0bef28f1",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-64cee5ce-2540-4ab1-b965-e4bc0bef28f1",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "removeVolumeOptions": {
+          "name": "pvc-cad04efa-cb8c-43b2-9e03-46c68765104e"
+        }
+      },
+      {
+        "removeVolumeOptions": {
+          "name": "pvc-172ecc2f-cecf-4b9f-af9b-7a2c59807193"
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-19c3114e-fa09-4ba2-ba3e-674228e8a400"
+          },
+          "name": "pvc-19c3114e-fa09-4ba2-ba3e-674228e8a400",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-19c3114e-fa09-4ba2-ba3e-674228e8a400",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-d8954283-cc94-458f-9a9f-488a909c01ab"
+          },
+          "name": "pvc-d8954283-cc94-458f-9a9f-488a909c01ab",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-d8954283-cc94-458f-9a9f-488a909c01ab",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-9b00821e-75e3-4375-8efb-ffc9749d5a2d"
+          },
+          "name": "pvc-9b00821e-75e3-4375-8efb-ffc9749d5a2d",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-9b00821e-75e3-4375-8efb-ffc9749d5a2d",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-fe7fdb19-6313-41c7-84d2-425037dea83f"
+          },
+          "name": "pvc-fe7fdb19-6313-41c7-84d2-425037dea83f",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-fe7fdb19-6313-41c7-84d2-425037dea83f",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-4010e851-a120-4257-9d80-1ca9cde2c5e9"
+          },
+          "name": "pvc-4010e851-a120-4257-9d80-1ca9cde2c5e9",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-4010e851-a120-4257-9d80-1ca9cde2c5e9",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-6ff9d01e-1340-406d-b585-829c3573bf11"
+          },
+          "name": "pvc-6ff9d01e-1340-406d-b585-829c3573bf11",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-6ff9d01e-1340-406d-b585-829c3573bf11",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-0e56a610-80f0-4049-9dad-95f41d17d986"
+          },
+          "name": "pvc-0e56a610-80f0-4049-9dad-95f41d17d986",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-0e56a610-80f0-4049-9dad-95f41d17d986",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-599d88e1-47b7-48bd-87ad-66ef8136f918"
+          },
+          "name": "pvc-599d88e1-47b7-48bd-87ad-66ef8136f918",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-599d88e1-47b7-48bd-87ad-66ef8136f918",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-e26406e9-738d-4da4-9948-f8ac27fa68bb"
+          },
+          "name": "pvc-e26406e9-738d-4da4-9948-f8ac27fa68bb",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-e26406e9-738d-4da4-9948-f8ac27fa68bb",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-2a44e94e-6b9f-4600-a529-9e64d744bc78"
+          },
+          "name": "pvc-2a44e94e-6b9f-4600-a529-9e64d744bc78",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-2a44e94e-6b9f-4600-a529-9e64d744bc78",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-461cb4d8-d5e7-40dc-9abb-57121bf57d40"
+          },
+          "name": "pvc-461cb4d8-d5e7-40dc-9abb-57121bf57d40",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-461cb4d8-d5e7-40dc-9abb-57121bf57d40",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-67caaaf8-2c30-404e-8b0b-929b0debf06f"
+          },
+          "name": "pvc-67caaaf8-2c30-404e-8b0b-929b0debf06f",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-67caaaf8-2c30-404e-8b0b-929b0debf06f",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-bcafc7c4-0658-4135-9f8c-8929b1c8a2a3"
+          },
+          "name": "pvc-bcafc7c4-0658-4135-9f8c-8929b1c8a2a3",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-bcafc7c4-0658-4135-9f8c-8929b1c8a2a3",
+              "hotpluggable": true
+            }
+          }
+        }
+      }
+    ],
+    "volumeSnapshotStatuses": [
+      {
+        "enabled": false,
+        "name": "cloudinitdisk",
+        "reason": "Snapshot is not supported for this volumeSource type [cloudinitdisk]"
+      },
+      {
+        "enabled": true,
+        "name": "disk-0"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-3ada33a4-7a40-4534-bbd2-851737f7a389"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-981694ce-e826-4f80-b2c5-c56ed1105f4a"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-f6e50963-c01b-42f4-be24-8fe172a221a1"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-cad04efa-cb8c-43b2-9e03-46c68765104e"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-bfe7457d-4e35-46b2-bb8b-e03b7bc8396a"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-76d28c1d-d55c-4d10-bc34-b9f6aaf40455"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-172ecc2f-cecf-4b9f-af9b-7a2c59807193"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-6b07b067-5ed2-4cc5-a6af-e6ef4446124a"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-ead635a6-4ea0-4b48-a9cc-123f182f6551"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-eb7f378a-8867-49cd-b166-d7ff5e6c1ae6"
+      }
+    ]
+  }
+}
+{
+  "apiVersion": "kubevirt.io/v1",
+  "kind": "VirtualMachine",
+  "metadata": {
+    "annotations": {
+      "harvesterhci.io/mac-address": "{\"nic-0\":\"3e:5a:52:1e:b3:4f\"}",
+      "harvesterhci.io/vmRunStrategy": "RerunOnFailure",
+      "harvesterhci.io/volumeClaimTemplates": "[{\"metadata\":{\"name\":\"ktc-play-worker-4ffhh-rhbvr-disk-0-bbcns\",\"creationTimestamp\":null,\"annotations\":{\"harvesterhci.io/imageId\":\"ktc/image-4mgl2\"}},\"spec\":{\"accessModes\":[\"ReadWriteMany\"],\"resources\":{\"requests\":{\"storage\":\"40Gi\"}},\"storageClassName\":\"longhorn-image-4mgl2\",\"volumeMode\":\"Block\"},\"status\":{}}]",
+      "kubevirt.io/latest-observed-api-version": "v1",
+      "kubevirt.io/storage-observed-api-version": "v1"
+    },
+    "creationTimestamp": "2026-01-06T12:11:16Z",
+    "finalizers": [
+      "kubevirt.io/virtualMachineControllerFinalize",
+      "wrangler.cattle.io/VMController.CleanupPVCAndSnapshot"
+    ],
+    "generation": 574,
+    "labels": {
+      "guestcluster.harvesterhci.io/name": "ktc-play",
+      "harvesterhci.io/creator": "docker-machine-driver-harvester",
+      "harvesterhci.io/machineSetName": "ktc-ktc-play-worker",
+      "harvesterhci.io/vmName": "ktc-play-worker-4ffhh-rhbvr",
+      "nodepool.harvesterhci.io/name": "worker-4ffhh"
+    },
+    "name": "ktc-play-worker-4ffhh-rhbvr",
+    "namespace": "ktc",
+    "resourceVersion": "423790339",
+    "uid": "efccd4e2-c5b9-4f77-bba7-6e862fc01296"
+  },
+  "spec": {
+    "runStrategy": "RerunOnFailure",
+    "template": {
+      "metadata": {
+        "annotations": {
+          "harvesterhci.io/sshNames": "[]",
+          "harvesterhci.io/waitForLeaseInterfaceNames": "[]"
+        },
+        "creationTimestamp": null,
+        "labels": {
+          "guestcluster.harvesterhci.io/name": "ktc-play",
+          "harvesterhci.io/creator": "docker-machine-driver-harvester",
+          "harvesterhci.io/machineSetName": "ktc-ktc-play-worker",
+          "harvesterhci.io/vmName": "ktc-play-worker-4ffhh-rhbvr",
+          "nodepool.harvesterhci.io/name": "worker-4ffhh"
+        }
+      },
+      "spec": {
+        "affinity": {
+          "nodeAffinity": {
+            "requiredDuringSchedulingIgnoredDuringExecution": {
+              "nodeSelectorTerms": [
+                {
+                  "matchExpressions": [
+                    {
+                      "key": "network.harvesterhci.io/oob",
+                      "operator": "In",
+                      "values": [
+                        "true"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "podAntiAffinity": {
+            "preferredDuringSchedulingIgnoredDuringExecution": [
+              {
+                "podAffinityTerm": {
+                  "labelSelector": {
+                    "matchExpressions": [
+                      {
+                        "key": "harvesterhci.io/creator",
+                        "operator": "Exists"
+                      }
+                    ]
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                },
+                "weight": 100
+              }
+            ]
+          }
+        },
+        "architecture": "amd64",
+        "domain": {
+          "cpu": {
+            "cores": 4
+          },
+          "devices": {
+            "disks": [
+              {
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "cloudinitdisk"
+              },
+              {
+                "bootOrder": 1,
+                "disk": {
+                  "bus": "virtio"
+                },
+                "name": "disk-0"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-58b92e28-42df-4d43-ab3f-b6ee0d49d282"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-e24dd144-c1a8-4e19-9898-ba709e870f47"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-affbf5e1-0353-431a-b95c-7830a1b02488"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-cd388dbc-3d69-46bf-9e18-098a5694ac74"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-ad3ed1cd-f63e-422d-9991-a3543b1e2806"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-dfc0a609-cb7c-44d7-970d-cdc7e19969fc"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-300df799-7437-44d3-b52d-6cfad6b7d68f"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-584ac72f-f907-4da2-86db-704150fdc2a2"
+              },
+              {
+                "disk": {
+                  "bus": "scsi"
+                },
+                "name": "pvc-53c5b6ff-09ad-47b9-a7f8-43c8bd58561f"
+              }
+            ],
+            "interfaces": [
+              {
+                "bridge": {},
+                "model": "virtio",
+                "name": "nic-0"
+              }
+            ]
+          },
+          "machine": {
+            "type": "q35"
+          },
+          "memory": {
+            "guest": "8Gi"
+          },
+          "resources": {
+            "limits": {
+              "cpu": "4",
+              "memory": "8Gi"
+            },
+            "requests": {
+              "cpu": "250m",
+              "memory": "5461Mi"
+            }
+          }
+        },
+        "evictionStrategy": "LiveMigrateIfPossible",
+        "networks": [
+          {
+            "multus": {
+              "networkName": "ktc/vlan2001"
+            },
+            "name": "nic-0"
+          }
+        ],
+        "terminationGracePeriodSeconds": 120,
+        "volumes": [
+          {
+            "cloudInitNoCloud": {
+              "secretRef": {
+                "name": "ktc-play-worker-4ffhh-rhbvr-cloudinit"
+              }
+            },
+            "name": "cloudinitdisk"
+          },
+          {
+            "name": "disk-0",
+            "persistentVolumeClaim": {
+              "claimName": "ktc-play-worker-4ffhh-rhbvr-disk-0-bbcns"
+            }
+          },
+          {
+            "name": "pvc-58b92e28-42df-4d43-ab3f-b6ee0d49d282",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-58b92e28-42df-4d43-ab3f-b6ee0d49d282",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-e24dd144-c1a8-4e19-9898-ba709e870f47",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-e24dd144-c1a8-4e19-9898-ba709e870f47",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-affbf5e1-0353-431a-b95c-7830a1b02488",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-affbf5e1-0353-431a-b95c-7830a1b02488",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-cd388dbc-3d69-46bf-9e18-098a5694ac74",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-cd388dbc-3d69-46bf-9e18-098a5694ac74",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-ad3ed1cd-f63e-422d-9991-a3543b1e2806",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-ad3ed1cd-f63e-422d-9991-a3543b1e2806",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-dfc0a609-cb7c-44d7-970d-cdc7e19969fc",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-dfc0a609-cb7c-44d7-970d-cdc7e19969fc",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-300df799-7437-44d3-b52d-6cfad6b7d68f",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-300df799-7437-44d3-b52d-6cfad6b7d68f",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-584ac72f-f907-4da2-86db-704150fdc2a2",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-584ac72f-f907-4da2-86db-704150fdc2a2",
+              "hotpluggable": true
+            }
+          },
+          {
+            "name": "pvc-53c5b6ff-09ad-47b9-a7f8-43c8bd58561f",
+            "persistentVolumeClaim": {
+              "claimName": "pvc-53c5b6ff-09ad-47b9-a7f8-43c8bd58561f",
+              "hotpluggable": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "status": {
+    "conditions": [
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2026-01-06T12:11:31Z",
+        "status": "True",
+        "type": "Ready"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "LiveMigratable"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "StorageLiveMigratable"
+      },
+      {
+        "lastProbeTime": "2026-01-06T12:12:45Z",
+        "lastTransitionTime": null,
+        "status": "True",
+        "type": "AgentConnected"
+      },
+      {
+        "lastProbeTime": null,
+        "lastTransitionTime": "2026-01-06T23:37:15Z",
+        "message": "Error encountered when trying to update vm according to add volume and/or memory dump requests: admission webhook \"validator.harvesterhci.io\" denied the request: the volume pvc-eb119438-8f12-473a-bb0a-fed703f7a334 is already used by VM ktc/ktc-play-worker-4ffhh-9j8sd",
+        "reason": "FailedUpdateError",
+        "status": "True",
+        "type": "Failure"
+      }
+    ],
+    "created": true,
+    "desiredGeneration": 574,
+    "observedGeneration": 456,
+    "printableStatus": "Running",
+    "ready": true,
+    "runStrategy": "RerunOnFailure",
+    "volumeRequests": [
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-e5bceebf-da6d-4a67-b344-112d6845d4fb"
+          },
+          "name": "pvc-e5bceebf-da6d-4a67-b344-112d6845d4fb",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-e5bceebf-da6d-4a67-b344-112d6845d4fb",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "removeVolumeOptions": {
+          "name": "pvc-dfc0a609-cb7c-44d7-970d-cdc7e19969fc"
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-eb119438-8f12-473a-bb0a-fed703f7a334"
+          },
+          "name": "pvc-eb119438-8f12-473a-bb0a-fed703f7a334",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-eb119438-8f12-473a-bb0a-fed703f7a334",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "removeVolumeOptions": {
+          "name": "pvc-300df799-7437-44d3-b52d-6cfad6b7d68f"
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-e43bd2ae-58ac-43d8-9447-0a26d30e312e"
+          },
+          "name": "pvc-e43bd2ae-58ac-43d8-9447-0a26d30e312e",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-e43bd2ae-58ac-43d8-9447-0a26d30e312e",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-e49f1eca-eb63-45d2-b11e-72f981e06d53"
+          },
+          "name": "pvc-e49f1eca-eb63-45d2-b11e-72f981e06d53",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-e49f1eca-eb63-45d2-b11e-72f981e06d53",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-9f65d4a8-da48-420d-bce2-9b67aa0a11f7"
+          },
+          "name": "pvc-9f65d4a8-da48-420d-bce2-9b67aa0a11f7",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-9f65d4a8-da48-420d-bce2-9b67aa0a11f7",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-c73e24ab-2546-49be-bd91-5c9fcb4e1ab5"
+          },
+          "name": "pvc-c73e24ab-2546-49be-bd91-5c9fcb4e1ab5",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-c73e24ab-2546-49be-bd91-5c9fcb4e1ab5",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-89805a01-c689-4710-af4a-3d10e7666b89"
+          },
+          "name": "pvc-89805a01-c689-4710-af4a-3d10e7666b89",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-89805a01-c689-4710-af4a-3d10e7666b89",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-5dadd0f9-76ef-44a2-b6b2-89eb5c91dfff"
+          },
+          "name": "pvc-5dadd0f9-76ef-44a2-b6b2-89eb5c91dfff",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-5dadd0f9-76ef-44a2-b6b2-89eb5c91dfff",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-9ece1beb-a021-4e35-9d29-b3ae14e477b1"
+          },
+          "name": "pvc-9ece1beb-a021-4e35-9d29-b3ae14e477b1",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-9ece1beb-a021-4e35-9d29-b3ae14e477b1",
+              "hotpluggable": true
+            }
+          }
+        }
+      },
+      {
+        "addVolumeOptions": {
+          "disk": {
+            "disk": {
+              "bus": "scsi"
+            },
+            "name": "pvc-6cdefa2a-db2b-4774-8cde-972371bbadcf"
+          },
+          "name": "pvc-6cdefa2a-db2b-4774-8cde-972371bbadcf",
+          "volumeSource": {
+            "persistentVolumeClaim": {
+              "claimName": "pvc-6cdefa2a-db2b-4774-8cde-972371bbadcf",
+              "hotpluggable": true
+            }
+          }
+        }
+      }
+    ],
+    "volumeSnapshotStatuses": [
+      {
+        "enabled": false,
+        "name": "cloudinitdisk",
+        "reason": "Snapshot is not supported for this volumeSource type [cloudinitdisk]"
+      },
+      {
+        "enabled": true,
+        "name": "disk-0"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-58b92e28-42df-4d43-ab3f-b6ee0d49d282"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-e24dd144-c1a8-4e19-9898-ba709e870f47"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-affbf5e1-0353-431a-b95c-7830a1b02488"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-cd388dbc-3d69-46bf-9e18-098a5694ac74"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-ad3ed1cd-f63e-422d-9991-a3543b1e2806"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-dfc0a609-cb7c-44d7-970d-cdc7e19969fc"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-300df799-7437-44d3-b52d-6cfad6b7d68f"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-584ac72f-f907-4da2-86db-704150fdc2a2"
+      },
+      {
+        "enabled": true,
+        "name": "pvc-53c5b6ff-09ad-47b9-a7f8-43c8bd58561f"
+      }
+    ]
+  }
+}
