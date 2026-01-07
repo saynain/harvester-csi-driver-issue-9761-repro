@@ -304,44 +304,6 @@ deploy_cronjobs() {
     fi
 }
 
-# Wait for clusters to be ready
-wait_for_clusters() {
-    if [[ "$DRY_RUN" == "true" ]]; then
-        log_info "[DRY-RUN] Would wait for PostgreSQL clusters to be ready"
-        return 0
-    fi
-    
-    log_info "Waiting for PostgreSQL clusters to initialize..."
-    log_info "This may take several minutes depending on cluster size."
-    echo ""
-    
-    local ready_count=0
-    local max_wait=300  # 5 minutes
-    local elapsed=0
-    local interval=10
-    
-    while [[ $elapsed -lt $max_wait ]]; do
-        ready_count=$(kubectl get clusters.postgresql.cnpg.io -A -l app.kubernetes.io/name=volume-stress-test \
-            --no-headers 2>/dev/null | grep -c "Cluster in healthy state") || ready_count=0
-        
-        echo -ne "\r  Clusters ready: $ready_count / $NAMESPACE_COUNT (${elapsed}s elapsed)    "
-        
-        if [[ "$ready_count" -ge "$NAMESPACE_COUNT" ]]; then
-            echo ""
-            log_ok "All PostgreSQL clusters are ready"
-            return 0
-        fi
-        
-        sleep $interval
-        elapsed=$((elapsed + interval))
-    done
-    
-    echo ""
-    log_warn "Timeout waiting for clusters. $ready_count / $NAMESPACE_COUNT ready."
-    log_info "Clusters may still be initializing. Check with:"
-    log_info "  kubectl get clusters -A"
-}
-
 # Print summary
 print_summary() {
     echo ""
@@ -361,10 +323,10 @@ print_summary() {
     echo ""
     echo -e "${BOLD}Next steps:${NC}"
     echo ""
-    echo "  1. Verify PostgreSQL clusters are ready:"
-    echo "     kubectl get clusters -A -l app.kubernetes.io/name=volume-stress-test"
+    echo "  1. Wait for PostgreSQL clusters to be ready:"
+    echo "     kubectl get clusters.postgresql.cnpg.io -A -w"
     echo ""
-    echo "  2. Enable CronJobs to start the stress test:"
+    echo "  2. Once all clusters show 'Cluster in healthy state', enable CronJobs:"
     echo "     ./scripts/enable-cronjobs.sh"
     echo ""
     echo "  3. Monitor for volume attachment issues:"
@@ -421,8 +383,6 @@ main() {
     
     deploy_cronjobs
     echo ""
-    
-    wait_for_clusters
     
     print_summary
 }
