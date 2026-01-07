@@ -321,9 +321,8 @@ wait_for_clusters() {
     local interval=10
     
     while [[ $elapsed -lt $max_wait ]]; do
-        ready_count=$(kubectl get clusters -A -l app.kubernetes.io/name=volume-stress-test \
-            -o jsonpath='{range .items[*]}{.status.phase}{"\n"}{end}' 2>/dev/null | \
-            grep -c "Cluster in healthy state" || echo "0")
+        ready_count=$(kubectl get clusters.postgresql.cnpg.io -A -l app.kubernetes.io/name=volume-stress-test \
+            --no-headers 2>/dev/null | grep -c "Cluster in healthy state") || ready_count=0
         
         echo -ne "\r  Clusters ready: $ready_count / $NAMESPACE_COUNT (${elapsed}s elapsed)    "
         
