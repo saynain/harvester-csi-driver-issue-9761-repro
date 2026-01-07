@@ -142,7 +142,7 @@ To change the number of namespaces after initial deployment:
 kubectl delete ns -l app.kubernetes.io/name=volume-stress-test
 
 # Optionally remove CNPG operator
-kubectl delete -f cnpg-1.27.1.yaml
+kubectl delete --server-side -f cnpg-1.27.1.yaml
 ```
 
 ## Expected Failure Symptoms

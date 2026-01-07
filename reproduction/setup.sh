@@ -195,7 +195,7 @@ install_cnpg() {
     if [[ "$DRY_RUN" == "true" ]]; then
         log_info "[DRY-RUN] Would apply: cnpg-1.27.1.yaml"
     else
-        kubectl apply -f "$SCRIPT_DIR/cnpg-1.27.1.yaml"
+        kubectl apply --server-side -f "$SCRIPT_DIR/cnpg-1.27.1.yaml"
         log_info "Waiting for CNPG operator to be ready..."
         kubectl wait --for=condition=available deployment/cnpg-controller-manager \
             -n cnpg-system --timeout=120s
