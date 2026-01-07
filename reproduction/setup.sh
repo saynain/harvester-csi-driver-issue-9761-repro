@@ -214,12 +214,14 @@ generate_manifests() {
     mkdir -p "$GENERATED_DIR/namespaces"
     
     # Read templates
-    local postgres_template secrets_template
+    local postgres_template secrets_template backup_cronjob_template
     postgres_template=$(cat "$TEMPLATES_DIR/postgres-cluster.yaml")
     secrets_template=$(cat "$TEMPLATES_DIR/secrets.yaml")
+    backup_cronjob_template=$(cat "$TEMPLATES_DIR/backup-cronjob.yaml")
     
-    # Substitute storage class in postgres template
+    # Substitute storage class in templates
     postgres_template="${postgres_template//storageClass: default/storageClass: $STORAGE_CLASS}"
+    backup_cronjob_template="${backup_cronjob_template//storageClassName: default/storageClassName: $STORAGE_CLASS}"
     
     # Generate root kustomization.yaml
     {
@@ -252,6 +254,9 @@ EOF
         # Postgres cluster manifest
         echo "$postgres_template" > "$ns_dir/postgres-cluster.yaml"
         
+        # Backup cronjob manifest
+        echo "$backup_cronjob_template" > "$ns_dir/backup-cronjob.yaml"
+        
         # Namespace kustomization
         cat > "$ns_dir/kustomization.yaml" <<EOF
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -263,6 +268,7 @@ resources:
   - namespace.yaml
   - secrets.yaml
   - postgres-cluster.yaml
+  - backup-cronjob.yaml
 EOF
         
         # Add to root kustomization
@@ -283,24 +289,6 @@ deploy_manifests() {
     else
         kubectl apply -k "$GENERATED_DIR"
         log_ok "Manifests applied"
-    fi
-}
-
-# Deploy backup cronjobs
-deploy_cronjobs() {
-    log_info "Deploying backup CronJobs (suspended)..."
-    
-    for i in $(seq -w 1 "$NAMESPACE_COUNT"); do
-        local ns_name="voltest-$i"
-        if [[ "$DRY_RUN" == "true" ]]; then
-            log_info "[DRY-RUN] Would deploy cronjob to $ns_name"
-        else
-            kubectl apply -f "$TEMPLATES_DIR/backup-cronjob.yaml" -n "$ns_name" 2>/dev/null || true
-        fi
-    done
-    
-    if [[ "$DRY_RUN" != "true" ]]; then
-        log_ok "CronJobs deployed to all namespaces (suspended)"
     fi
 }
 
@@ -374,14 +362,6 @@ main() {
     echo ""
     
     deploy_manifests
-    echo ""
-    
-    # Wait a moment for namespaces to be created before deploying cronjobs
-    if [[ "$DRY_RUN" != "true" ]]; then
-        sleep 2
-    fi
-    
-    deploy_cronjobs
     echo ""
     
     print_summary

@@ -11,7 +11,7 @@ echo "Enabling backup-simulator CronJobs in all voltest namespaces..."
 count=0
 for ns in $(kubectl get ns -o name | grep "voltest-" | cut -d/ -f2 | sort); do
     if kubectl patch cronjob backup-simulator -n "$ns" -p '{"spec":{"suspend":false}}' 2>/dev/null; then
-        ((count++))
+        count=$((count + 1))
     fi
 done
 
