@@ -559,7 +559,9 @@ analyze_pv() {
         # Check for multiple VAs on RWO volume
         if [[ $va_count -gt 1 && "$access_mode" == "ReadWriteOnce" ]]; then
             print_error "RWO volume has $va_count VolumeAttachments!"
-            add_issue "$pv" "CRITICAL" "RWO with $va_count VAs" "${va_nodes[*]}"
+            for va_node in "${va_nodes[@]}"; do
+                add_issue "$pv" "CRITICAL" "RWO with $va_count VAs" "$va_node"
+            done
             pv_has_issues=true
         fi
     fi
